@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .volume-alert {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .volume-icon {
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="volume-alert">
+      <span class="volume-icon">🔊</span>
+      <span>Turn up your volume</span>
+    </div>
+
+    <vturb-smartplayer 
+      id="vid-69f6058bac9b67e415ce04a6" 
+      style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
+    </vturb-smartplayer>
+
+  </div>
+
+  <script type="text/javascript">
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/69f6058bac9b67e415ce04a6/v4/player.js";
+    s.async = true;
+    document.head.appendChild(s);
+  </script>
+
+</body>
+</html>
