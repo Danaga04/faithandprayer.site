@@ -9,29 +9,28 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
+      background-color: #ffffff;
       font-family: Arial, sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
     }
 
     .container {
       width: 100%;
       max-width: 400px;
       text-align: center;
+      padding: 20px 10px;
     }
 
     .volume-alert {
-      color: #fff;
+      color: #000;
       font-size: 18px;
-      margin-bottom: 10px;
+      margin-top: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+      font-weight: bold;
     }
 
     .volume-icon {
@@ -43,17 +42,26 @@
 
   <div class="container">
 
-    <div class="volume-alert">
-      <span class="volume-icon">🔊</span>
-      <span>Turn up your volume</span>
-    </div>
-
     <vturb-smartplayer 
       id="vid-69f6058bac9b67e415ce04a6" 
       style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
     </vturb-smartplayer>
 
+    <div class="volume-alert">
+      <span class="volume-icon">🔊</span>
+      <span>Turn up your volume</span>
+    </div>
+
   </div>
+
+
+  <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
   <script type="text/javascript">
     var s = document.createElement("script");
