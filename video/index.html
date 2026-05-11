@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Presentation</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .video-wrapper {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 13px;
+      color: #777;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: #000;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+      footer {
+        font-size: 12px;
+        padding: 20px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="video-wrapper">
+
+      <vturb-smartplayer 
+        id="vid-6a00f4f7d350624835bf4210" 
+        style="display:block;width:100%;max-width:400px;">
+      </vturb-smartplayer>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2026 All Rights Reserved.<br>
+    This website is not affiliated with Facebook, Google, or any third-party platform.<br>
+    Results may vary from person to person.
+  </footer>
+
+  <script type="text/javascript">
+    var s = document.createElement("script");
+    s.src = "https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6a00f4f7d350624835bf4210/v4/player.js";
+    s.async = true;
+    document.head.appendChild(s);
+  </script>
+
+</body>
+</html>
