@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Secret Revealed - YouTube Live</title>
+    <link rel="icon" href="favicon.png">
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '939787432339812');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=939787432339812&ev=PageView&noscript=1"
+    /></noscript>
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+    <link rel="preload" href="https://scripts.converteai.net/2ac6ac40-fa39-417a-ae32-ad95128d49ad/players/69fc7b34e0be86a0b9b2dcf5/v4/player.js" as="script">
+    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+    <link rel="dns-prefetch" href="https://cdn.converteai.net" />
+    <link rel="dns-prefetch" href="https://scripts.converteai.net" />
+    <link rel="dns-prefetch" href="https://images.converteai.net" />
+    <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+    <link rel="dns-prefetch" href="https://api.vturb.com.br" />
+
+    <style>
+      :root {
+        --bg: #0f0f0f;
+        --panel: #181818;
+        --panel2: #202020;
+        --text: #f1f1f1;
+        --muted: #aaaaaa;
+        --btn: #f1f1f1;
+        --btnText: #111;
+        --blue: #3ea6ff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        display: block;
+        padding: 0;
+        min-height: 100vh;
+      }
+      .phone {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--text);
+        overflow: visible;
+        box-shadow: none;
+        padding-bottom: 60px;
+      }
+
+      .topbar {
+        height: 54px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--bg);
+        border-bottom: 1px solid #222;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+      }
+      .yt-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+      .yt-badge {
+        width: 26px;
+        height: 18px;
+        border-radius: 4px;
+        background: #ff0000;
+        position: relative;
+      }
+      .yt-badge:before {
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 5px;
+        border-left: 7px solid #fff;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+      }
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .icon-btn {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+      .icon-btn:hover {
+        background: #2a2a2a;
+      }
+
+      .video {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16/9;
+        background: #000;
+        overflow: hidden;
+      }
+
+      .info {
+        background: var(--bg);
+        padding: 12px 16px;
+      }
+      .title-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .title {
+        font-size: 18px;
+        line-height: 1.4;
+        font-weight: 700;
+        margin: 0;
+        flex: 1;
+      }
+
+      .meta {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .channel {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .channel-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        background: #222;
+        overflow: hidden;
+        display: block;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .ch-text {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .ch-name {
+        font-size: 15px;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .ch-subs {
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .subscribe {
+        border: 0;
+        background: var(--btn);
+        color: var(--btnText);
+        padding: 0 16px;
+        border-radius: 18px;
+        font-weight: 600;
+        font-size: 14px;
+        height: 36px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .actions {
+        margin-top: 16px;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+      }
+      .actions::-webkit-scrollbar {
+        display: none;
+      }
+      .chip {
+        white-space: nowrap;
+        background: #272727;
+        border: none;
+        border-radius: 18px;
+        height: 36px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 14px;
+      }
+      .chip:hover {
+        background: #3f3f3f;
+      }
+      .chip-group {
+        display: flex;
+        align-items: center;
+        background: #272727;
+        border-radius: 18px;
+        height: 36px;
+        overflow: hidden;
+      }
+      .chip-group .chip {
+        background: transparent;
+        border-radius: 0;
+      }
+      .chip-group .chip:hover {
+        background: #3f3f3f;
+      }
+      .chip-separator {
+        width: 1px;
+        height: 20px;
+        background: #444;
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+      .mini svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .desc-box {
+        background: #272727;
+        border-radius: 12px;
+        padding: 12px;
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text);
+      }
+
+      /* YOUTUBE LIVE CHAT STYLES */
+      .yt-livechat-wrap {
+        border: 1px solid #333;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-top: 20px;
+        background: var(--bg);
+      }
+      .yt-livechat-header {
+        padding: 12px 16px;
+        border-bottom: 1px solid #333;
+        font-weight: 500;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .yt-live-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #cc0000;
+        animation: pulse 1.4s infinite;
+      }
+      @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+      .yt-livechat-feed {
+        height: 400px;
+        overflow-y: auto;
+        padding: 12px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .yt-livechat-feed::-webkit-scrollbar {
+        width: 6px;
+      }
+      .yt-livechat-feed::-webkit-scrollbar-thumb {
+        background: #555;
+        border-radius: 3px;
+      }
+      .lc-msg {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 0 16px;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .lc-avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+      .lc-content {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 8px;
+      }
+      .lc-handle {
+        font-weight: 500;
+        color: #aaa;
+      }
+      .lc-text {
+        color: var(--text);
+      }
+
+      /* TOAST NOTIFICATION */
+      .yt-toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: #f1f1f1;
+        color: #0f0f0f;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 500;
+        transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        z-index: 9999;
+      }
+      .yt-toast.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+
+      /* Keeping Offer Section CSS as requested */
+      .offer-section { font-family: 'Poppins', Arial, Helvetica, sans-serif; text-align: center; background: #ffffff; padding: 20px 10px; }
+      .offer-section .special-text { margin-top: 15px; font-size: 16px; line-height: 1.6; color: #111; max-width: 400px; margin-left: auto; margin-right: auto; }
+      .offer-section .special-text strong { color: #e5392d; }
+      .offer-section .countdown-bar { background: #e5392d; color: #fff; padding: 20px 10px; }
+      .offer-section .countdown-bar h1 { font-size: 28px; margin-bottom: 15px; }
+      .offer-section .countdown-box { background: #000; display: inline-flex; padding: 20px 30px; border-radius: 5px; gap: 40px; }
+      .offer-section .time { text-align: center; }
+      .offer-section .time span { display: block; font-size: 48px; font-weight: bold; }
+      .offer-section .label { font-size: 14px; margin-top: 5px; }
+      .offer-section .price-old { font-size: 28px; color: #666; font-weight: bold; }
+      .offer-section .price-old span { color: red; text-decoration: line-through; }
+      .offer-section .price-new { font-size: 26px; margin-top: 5px; }
+      .offer-section .price-new span { color: #2fae8f; font-weight: bold; }
+      .offer-section .cta-button { display: inline-block; margin-top: 20px; background: #ffd600; color: #000; font-size: 22px; font-weight: bold; padding: 18px 40px; border-radius: 40px; text-decoration: none; box-shadow: 0px 4px 0px #c9a800; transition: 0.2s; }
+      .offer-section .cta-button:hover { transform: scale(1.03); }
+      .offer-section .sub-link { display: block; margin-top: 15px; color: #0047ff; font-size: 18px; text-decoration: underline; }
+      .offer-section .payments { margin-top: 15px; }
+      .offer-section .payments img { height: 28px; }
+      .offer-section .secure { margin-top: 10px; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <div class="topbar">
+            <div class="yt-logo">
+                <span class="yt-badge" aria-hidden="true"></span>
+                <span>YouTube</span>
+            </div>
+            <div class="top-actions">
+                <div class="icon-btn mini" title="Search" aria-label="Search">
+                    <svg viewBox="0 0 24 24"><path d="M10 4a6 6 0 104.47 10.03l4.25 4.25 1.41-1.41-4.25-4.25A6 6 0 0010 4zm0 2a4 4 0 110 8 4 4 0 010-8z"></path></svg>
+                </div>
+                <div class="icon-btn mini" title="More options" aria-label="More options">
+                    <svg viewBox="0 0 24 24"><path d="M12 7a2 2 0 110-4 2 2 0 010 4zm0 7a2 2 0 110-4 2 2 0 010 4zm0 7a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="video">
+            <vturb-smartplayer id="vid-69fc7b34e0be86a0b9b2dcf5" style="display: block; margin: 0 auto; width: 100%; height: 100%;"></vturb-smartplayer> 
+            <script type="text/javascript"> 
+                var s=document.createElement("script"); 
+                s.src="https://scripts.converteai.net/2ac6ac40-fa39-417a-ae32-ad95128d49ad/players/69fc7b34e0be86a0b9b2dcf5/v4/player.js", s.async=!0,document.head.appendChild(s); 
+            </script>
+        </div>
+
+        <div class="info">
+            <div class="title-row">
+                <h1 class="title">THIS WAS HIDDEN FROM YOU... BUT TODAY IT WILL BE REVEALED LIVE AT <span id="liveTime"></span></h1>
+            </div>
+            <div class="meta">
+                <span>14,592 watching now</span>
+                <span>•</span>
+                <span>Started streaming 5 minutes ago</span>
+            </div>
+
+            <div class="channel">
+                <div class="channel-left">
+                    <div class="avatar"><img src="https://randomuser.me/api/portraits/men/82.jpg" alt="Father Juan Mendez"></div>
+                    <div class="ch-text">
+                        <div class="ch-name">
+                            Father Juan Mendez
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="#aaa"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        </div>
+                        <div class="ch-subs">93K subscribers</div>
+                    </div>
+                </div>
+                <button class="subscribe" id="btnSub">Subscribe</button>
+            </div>
+
+            <div class="actions">
+                <div class="chip-group">
+                    <button class="chip" id="btnLike">
+                        <svg viewBox="0 0 24 24"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+                        <span id="likeCount">7.1K</span>
+                    </button>
+                    <div class="chip-separator"></div>
+                    <button class="chip">
+                        <svg viewBox="0 0 24 24"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
+                    </button>
+                </div>
+                <button class="chip">
+                    <svg viewBox="0 0 24 24"><path d="M11.7333 15.6667V8.53333L16 12.1L11.7333 15.6667ZM12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2ZM12 3.5C7.30558 3.5 3.5 7.30558 3.5 12C3.5 16.6944 7.30558 20.5 12 20.5C16.6944 20.5 20.5 16.6944 20.5 12C20.5 7.30558 16.6944 3.5 12 3.5Z"/></svg>
+                    Share
+                </button>
+                <button class="chip">
+                    <svg viewBox="0 0 24 24"><path d="M17 14v4h-4v2h4v4h2v-4h4v-2h-4v-4h-2zM4 14h9v2H4v-2zM4 10h16v2H4v-2zM4 6h16v2H4V6z"/></svg>
+                    Save
+                </button>
+            </div>
+
+            <div class="desc-box">
+                <b>This video will be deleted immediately after the live stream ends...</b><br>
+                <span style="color: #aaa;">(Do not refresh or leave this page to avoid losing connection)</span>
+            </div>
+
+            <div class="yt-livechat-wrap">
+                <div class="yt-livechat-header">
+                    Top chat
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="#f1f1f1" style="margin-left: auto; transform: rotate(90deg);"><path d="M12 7a2 2 0 110-4 2 2 0 010 4zm0 7a2 2 0 110-4 2 2 0 010 4zm0 7a2 2 0 110-4 2 2 0 010 4z"></path></svg>
+                </div>
+                <div class="yt-livechat-feed" id="liveChatFeed">
+                    <div class="lc-msg">
+                        <img class="lc-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                        <div class="lc-content"><span class="lc-handle">Sarah Miller</span> <span class="lc-text">Amen, waiting with faith 🙏</span></div>
+                    </div>
+                    <div class="lc-msg">
+                        <img class="lc-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                        <div class="lc-content"><span class="lc-handle">Charles Moore</span> <span class="lc-text">Greetings from Texas!</span></div>
+                    </div>
+                    <div class="lc-msg">
+                        <img class="lc-avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="User">
+                        <div class="lc-content"><span class="lc-handle">Emily Faith</span> <span class="lc-text">This is exactly what I needed to hear today. God bless!</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="yt-toast" id="ytToast"></div>
+
+    <script>
+        // Dynamic Time for Title
+        (function(){
+            var now = new Date(), h = now.getHours(), m = now.getMinutes(), ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12; h = h ? h : 12; var mm = m < 10 ? '0' + m : m;
+            document.getElementById('liveTime').textContent = h + ':' + mm + ' ' + ampm;
+        })();
+
+        // Toast Notifications functionality
+        function toast(msg){
+            var t = document.getElementById('ytToast');
+            t.textContent = msg; 
+            t.classList.add('show');
+            setTimeout(function(){ t.classList.remove('show'); }, 3000);
+        }
+
+        document.getElementById('btnSub').addEventListener('click', function(){
+            this.style.background = "#272727";
+            this.style.color = "#f1f1f1";
+            this.textContent = 'Subscribed';
+            toast('Subscription added');
+        });
+
+        // Simulated Realistic YouTube Live Chat
+        var chat = document.getElementById('liveChatFeed');
+        
+        // Realistic English messages based on the video context
+        var msgs = [
+            "Amen 🙏", "Thank you Father!", "Incredible revelation", "I'm sharing this with my family right now", 
+            "Blessings to all", "Watching from Florida! 🌴", "This is so powerful", "God is great", 
+            "I needed this sign today.", "Praise the Lord!", "Listening from California", "Can everyone hear it clearly?",
+            "My prayers have been answered ❤️", "I feel a profound peace watching this", "Please pray for my mother",
+            "This makes so much sense now.", "Wow, I never knew this secret.", "God bless you Father Mendez"
+        ];
+        
+        // Real US English Names
+        var usNames = [
+            "Michael Smith", "Jessica Johnson", "David Williams", "Amanda Jones", "Robert Brown", 
+            "Jennifer Davis", "James Miller", "Sarah Wilson", "John Anderson", "Mary Taylor", 
+            "William Thomas", "Elizabeth Moore", "Richard Jackson", "Linda Martin", "Joseph Lee",
+            "Patricia Perez", "Thomas Thompson", "Susan White", "Christopher Harris", "Margaret Sanchez"
+        ];
+
+        // Chat Loop
+        setInterval(function(){
+            var d = document.createElement('div');
+            d.className = 'lc-msg';
+            
+            // Randomly select gender, avatar and name
+            var gender = Math.random() > 0.5 ? 'men' : 'women';
+            var avatarId = Math.floor(Math.random() * 90);
+            var handle = usNames[Math.floor(Math.random() * usNames.length)];
+            var message = msgs[Math.floor(Math.random() * msgs.length)];
+            
+            d.innerHTML = `
+                <img class="lc-avatar" src="https://randomuser.me/api/portraits/${gender}/${avatarId}.jpg" alt="User">
+                <div class="lc-content">
+                    <span class="lc-handle">${handle}</span>
+                    <span class="lc-text">${message}</span>
+                </div>
+            `;
+            
+            chat.appendChild(d);
+            
+            // Auto scroll to bottom
+            chat.scrollTop = chat.scrollHeight;
+            
+            // Limit the amount of messages in DOM to prevent lag (keep last 50)
+            if (chat.children.length > 50) {
+                chat.removeChild(chat.firstChild);
+            }
+        }, 3000); // New message every 3 seconds
+    </script>
+</body>
+</html>
