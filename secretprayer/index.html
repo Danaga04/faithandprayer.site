@@ -2,7 +2,6 @@
 
 <head>
 
-<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,9 +17,7 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=911756201917807&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
-    
-    <meta charset="utf-8" />
+<meta charset="utf-8" />
 
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
@@ -1132,55 +1129,53 @@ src="https://www.facebook.com/tr?id=911756201917807&ev=PageView&noscript=1"
 
         
 
-       var usNames = [
+        var maleNames = [
 
-    "Michael Smith", "Jessica Johnson", "David Williams", "Amanda Jones", "Robert Brown",
+    "Michael Smith", "David Williams", "Robert Brown", "James Miller", "John Anderson", 
 
-    "Jennifer Davis", "James Miller", "Sarah Wilson", "John Anderson", "Mary Taylor",
+    "William Thomas", "Richard Jackson", "Joseph Lee", "Thomas Thompson", "Christopher Harris", 
 
-    "William Thomas", "Elizabeth Moore", "Richard Jackson", "Linda Martin", "Joseph Lee",
+    "Daniel Walker", "Matthew Allen", "Joshua Hernandez", "Andrew Wright", "Ryan Green", 
 
-    "Patricia Perez", "Thomas Thompson", "Susan White", "Christopher Harris", "Margaret Sanchez",
+    "Brandon Baker", "Kevin Carter", "Anthony Roberts", "Jason Campbell", "Justin Evans", 
 
-    
+    "Tyler Collins", "Nicholas Morris", "Jonathan Reed", "Benjamin Morgan", "Christian Murphy", 
 
-    "Daniel Walker", "Ashley Hall", "Matthew Allen", "Emily Young", "Joshua Hernandez",
+    "Zachary Rivera", "Aaron Richardson", "Eric Howard", "Nathan Torres", "Adam Gray", 
 
-    "Megan King", "Andrew Wright", "Lauren Scott", "Ryan Green", "Stephanie Adams",
+    "Sean Flores", "Kyle Bennett", "Ethan Foster", "Logan Bryant", "Caleb Hughes", 
 
-    "Brandon Baker", "Nicole Nelson", "Kevin Carter", "Rachel Mitchell", "Anthony Roberts",
+    "Noah Simmons", "Luke Butler", "Jack Henderson", "Henry Coleman", "Owen Jenkins", 
 
-    "Heather Phillips", "Jason Campbell", "Olivia Parker", "Justin Evans", "Brittany Edwards",
+    "Samuel Brooks", "Dylan Price", "Gabriel Bennett", "Isaac Foster", "Julian Long", 
 
-    
+    "Levi Richardson", "Hunter Reed", "Connor Griffin", "Evan Russell", "Jordan Coleman"
 
-    "Tyler Collins", "Samantha Stewart", "Nicholas Morris", "Victoria Rogers", "Jonathan Reed",
+];
 
-    "Chloe Cook", "Benjamin Morgan", "Natalie Bell", "Christian Murphy", "Kayla Bailey",
 
-    "Zachary Rivera", "Madison Cooper", "Aaron Richardson", "Hannah Cox", "Eric Howard",
 
-    "Abigail Ward", "Nathan Torres", "Grace Peterson", "Adam Gray", "Sophia Ramirez",
+        var femaleNames = [
 
-    
+    "Jessica Johnson", "Amanda Jones", "Jennifer Davis", "Sarah Wilson", "Mary Taylor", 
 
-    "Sean Flores", "Isabella Jenkins", "Kyle Bennett", "Mia Long", "Ethan Foster",
+    "Elizabeth Moore", "Linda Martin", "Patricia Perez", "Susan White", "Margaret Sanchez", 
 
-    "Avery Powell", "Logan Bryant", "Ella Patterson", "Caleb Hughes", "Scarlett Coleman",
+    "Ashley Hall", "Emily Young", "Megan King", "Lauren Scott", "Stephanie Adams", 
 
-    "Noah Simmons", "Lily Foster", "Luke Butler", "Aria Barnes", "Jack Henderson",
+    "Nicole Nelson", "Rachel Mitchell", "Heather Phillips", "Olivia Parker", "Brittany Edwards", 
 
-    "Zoe Ross", "Henry Coleman", "Layla Perry", "Owen Jenkins", "Nora Hughes",
+    "Samantha Stewart", "Victoria Rogers", "Chloe Cook", "Natalie Bell", "Kayla Bailey", 
 
-    
+    "Madison Cooper", "Hannah Cox", "Abigail Ward", "Grace Peterson", "Sophia Ramirez", 
 
-    "Samuel Brooks", "Penelope Sanders", "Dylan Price", "Aurora Kelly", "Gabriel Bennett",
+    "Isabella Jenkins", "Mia Long", "Avery Powell", "Ella Patterson", "Scarlett Coleman", 
 
-    "Savannah Diaz", "Isaac Foster", "Brooklyn Myers", "Julian Long", "Claire Watson",
+    "Lily Foster", "Aria Barnes", "Zoe Ross", "Layla Perry", "Nora Hughes", 
 
-    "Levi Richardson", "Paisley Brooks", "Hunter Reed", "Bella Wood", "Connor Griffin",
+    "Penelope Sanders", "Aurora Kelly", "Savannah Diaz", "Brooklyn Myers", "Claire Watson", 
 
-    "Lucy Hayes", "Evan Russell", "Stella Bryant", "Jordan Coleman", "Violet Simmons"
+    "Paisley Brooks", "Bella Wood", "Lucy Hayes", "Stella Bryant", "Violet Simmons"
 
 ];
 
@@ -1200,7 +1195,11 @@ src="https://www.facebook.com/tr?id=911756201917807&ev=PageView&noscript=1"
 
             var avatarId = Math.floor(Math.random() * 90);
 
-            var handle = usNames[Math.floor(Math.random() * usNames.length)];
+            var handle = gender === 'men' 
+
+                ? maleNames[Math.floor(Math.random() * maleNames.length)] 
+
+                : femaleNames[Math.floor(Math.random() * femaleNames.length)];
 
             var message = msgs[Math.floor(Math.random() * msgs.length)];
 
