@@ -164,10 +164,13 @@
 
     <!-- BOTÕES -->
     <div class="decision-container">
-       <button 
-           id="esconder"
-           type="button" onclick="acceptUpsell('https://checkout.kashpay.com.br/u/f62cafa91fe6619e')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;">CLICK HERE TO ACCESS NOW</button>
-       
+     
+     <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;"><button type="button" 
+                                                                                          id="esconder"
+                                                                                          onclick="acceptUpsell('https://checkout.kashpay.com.br/u/f46ba099c50734ca')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;">ACCESS THE APP NOW</button><button type="button" onclick="declineUpsell('https://checkout.kashpay.com.br/u/f46ba099c50734ca')" style="font-family: 'Poppins'; font-size: 15px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #dc2626; border: none; border-radius: 10px; padding: 10px 5%; cursor: pointer; text-align: center; display: block; margin: auto;">No, thanks. I'd rather lose access to my guardian angel.</button></div>
+
+
+        
     </div>
 
     <!-- TEXTO DA ORAÇÃO COM ID ESCONDER -->
@@ -186,7 +189,7 @@
     <div style="height: 300px; width: 100%; background: #ffffff;"></div>
 
     <script>
-        const link = 'https://checkout.kashpay.com.br/u/f62cafa91fe6619e';
+        const link = 'https://checkout.kashpay.com.br/u/f46ba099c50734ca';
         function setBackRedirect(url) {
             let urlBackRedirect = url;
             urlBackRedirect = urlBackRedirect.trim() +
