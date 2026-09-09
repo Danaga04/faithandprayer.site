@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Prayer App is a digital educational app focused on prayer, daily reflection, and personal development.">
+<meta name="robots" content="index, follow">
+<title>Prayer App | Daily Prayer & Reflection</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --night: #1c2b3a;
+    --night-deep: #101b26;
+    --sand: #f3ede2;
+    --sand-warm: #ece2cf;
+    --clay: #c46b4a;
+    --clay-soft: #e0a084;
+    --ink: #1a1f24;
+    --muted: #5b6570;
+    --line: rgba(28,43,58,.14);
+    --white: #ffffff;
+    --max: 1160px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:"Inter", sans-serif;
+    background:var(--sand);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{ color:inherit; text-decoration:none; }
+  button{ font-family:inherit; }
+  img,svg{ display:block; }
+
+  .container{
+    width:min(var(--max), calc(100% - 48px));
+    margin:0 auto;
+  }
+
+  h1,h2,h3, .serif{
+    font-family:"Fraunces", serif;
+    font-optical-sizing:auto;
+  }
+
+  /* ============ HEADER ============ */
+  .header{
+    position:fixed; top:0; left:0; width:100%;
+    z-index:1000;
+    padding:26px 0;
+    transition:.3s ease;
+  }
+  .header.scrolled{
+    padding:14px 0;
+    background:rgba(243,237,226,.92);
+    backdrop-filter:blur(14px);
+    box-shadow:0 6px 24px rgba(16,27,38,.06);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    display:flex; align-items:center; gap:11px;
+    font-weight:600; font-size:19px; color:var(--night);
+  }
+  .logo-mark{
+    width:34px; height:34px; border-radius:9px;
+    background:var(--night);
+    display:grid; place-items:center;
+    position:relative;
+  }
+  .logo-mark::before{
+    content:"";
+    width:10px; height:14px;
+    border-radius:5px 5px 2px 2px;
+    background:var(--clay-soft);
+  }
+  .nav-links{
+    display:flex; align-items:center; gap:34px;
+  }
+  .nav-links a{
+    font-size:14px; font-weight:500; color:var(--muted);
+    transition:.2s;
+  }
+  .nav-links a:hover{ color:var(--night); }
+  .nav-cta{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:12px 22px;
+    border-radius:8px;
+    background:var(--night);
+    color:var(--white) !important;
+    font-size:13px !important; font-weight:600;
+    transition:.2s;
+  }
+  .nav-cta:hover{ background:var(--night-deep); }
+  .menu-toggle{
+    display:none;
+    width:42px; height:42px;
+    border:1px solid var(--line); border-radius:8px;
+    background:transparent; color:var(--night);
+    font-size:18px; cursor:pointer;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:168px 0 90px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap:64px;
+    align-items:end;
+  }
+  .kicker{
+    font-size:13px; font-weight:600; color:var(--clay);
+    margin-bottom:20px;
+  }
+  .hero h1{
+    font-size:clamp(40px, 5.4vw, 66px);
+    font-weight:500;
+    line-height:1.05;
+    letter-spacing:-.01em;
+    color:var(--night);
+    max-width:600px;
+  }
+  .hero-desc{
+    max-width:460px;
+    margin-top:22px;
+    font-size:16px;
+    color:var(--muted);
+  }
+  .hero-actions{
+    display:flex; align-items:center; gap:16px;
+    margin-top:34px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--night); color:var(--white);
+    padding:14px 22px; border-radius:9px;
+    font-size:14px; font-weight:600;
+    transition:.2s;
+  }
+  .btn-primary:hover{ background:var(--night-deep); }
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 6px;
+    font-size:14px; font-weight:600; color:var(--night);
+    border-bottom:1px solid var(--night);
+  }
+
+  .hero-card{
+    background:var(--night);
+    border-radius:18px;
+    padding:34px 30px;
+    color:var(--sand);
+    position:relative;
+    overflow:hidden;
+    min-height:300px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .hero-card::before{
+    content:"";
+    position:absolute;
+    width:220px; height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(196,107,74,.35), transparent 70%);
+    right:-70px; top:-70px;
+  }
+  .hero-card-label{
+    font-size:12px; font-weight:600; color:var(--clay-soft);
+    position:relative; z-index:2;
+  }
+  .hero-card blockquote{
+    font-family:"Fraunces", serif;
+    font-size:23px;
+    font-weight:500;
+    line-height:1.4;
+    margin-top:18px;
+    position:relative; z-index:2;
+  }
+  .hero-card footer{
+    font-size:13px;
+    color:rgba(243,237,226,.6);
+    margin-top:22px;
+    position:relative; z-index:2;
+  }
+
+  /* ============ STRIP ============ */
+  .strip{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:28px 0;
+  }
+  .strip-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .strip-item{
+    font-size:13px; color:var(--muted);
+    padding-left:16px;
+    border-left:2px solid var(--clay);
+  }
+  .strip-item strong{
+    display:block;
+    color:var(--night);
+    font-size:14px;
+    margin-bottom:2px;
+  }
+
+  /* ============ SECTION ============ */
+  .section{ padding:110px 0; }
+  .section-head{
+    max-width:600px;
+    margin-bottom:56px;
+  }
+  .section-head .kicker{ margin-bottom:14px; }
+  .section-head h2{
+    font-size:clamp(32px,3.6vw,46px);
+    font-weight:500;
+    color:var(--night);
+    line-height:1.12;
+    margin-bottom:14px;
+  }
+  .section-head p{
+    color:var(--muted);
+    font-size:15.5px;
+  }
+
+  /* ============ PRODUCT ============ */
+  .product{ background:var(--white); }
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  .product-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:30px;
+    background:var(--sand);
+  }
+  .product-card .tag{
+    font-size:12px; font-weight:600; color:var(--clay);
+    margin-bottom:16px;
+  }
+  .product-card h3{
+    font-size:21px; font-weight:500;
+    color:var(--night);
+    margin-bottom:8px;
+  }
+  .product-card p{
+    font-size:14px; color:var(--muted);
+  }
+
+  /* ============ ABOUT ============ */
+  .about{ background:var(--night); color:var(--sand); }
+  .about-grid{
+    display:grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap:70px;
+    align-items:start;
+  }
+  .about .kicker{ color:var(--clay-soft); }
+  .about h2{
+    font-size:clamp(30px,3.4vw,42px);
+    font-weight:500;
+    line-height:1.15;
+    margin-bottom:20px;
+  }
+  .about-lead{
+    font-size:16px;
+    color:rgba(243,237,226,.75);
+    max-width:400px;
+  }
+  .about-list{
+    list-style:none;
+    display:grid;
+    gap:22px;
+  }
+  .about-list li{
+    padding-top:20px;
+    border-top:1px solid rgba(243,237,226,.15);
+  }
+  .about-list li:first-child{ padding-top:0; border-top:0; }
+  .about-list h4{
+    font-size:15px; font-weight:600;
+    margin-bottom:6px;
+    color:var(--sand);
+  }
+  .about-list p{
+    font-size:14px;
+    color:rgba(243,237,226,.6);
+    max-width:480px;
+  }
+
+  /* ============ SUPPORT ============ */
+  .support{ background:var(--sand); }
+  .support-card{
+    max-width:820px; margin:0 auto;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:46px;
+    text-align:center;
+  }
+  .support-card h2{
+    font-size:32px; font-weight:500; color:var(--night);
+    margin-bottom:12px;
+  }
+  .support-card p{
+    max-width:520px; margin:0 auto 24px;
+    color:var(--muted); font-size:14.5px;
+  }
+  .support-email{
+    display:inline-flex; align-items:center; gap:9px;
+    color:var(--night); font-weight:600; font-size:14px;
+    padding:12px 20px;
+    border:1px solid var(--line); border-radius:9px;
+    transition:.2s;
+  }
+  .support-email:hover{ background:var(--night); color:var(--white); }
+
+  /* ============ FAQ ============ */
+  .faq{ background:var(--white); }
+  .faq-list{
+    max-width:760px; margin:0 auto;
+    border-top:1px solid var(--line);
+  }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-question{
+    width:100%; padding:22px 4px;
+    border:0; background:none;
+    display:flex; justify-content:space-between; align-items:center; gap:20px;
+    cursor:pointer; text-align:left;
+    font-family:"Fraunces", serif;
+    font-size:17px; font-weight:500;
+    color:var(--night);
+  }
+  .faq-icon{
+    width:28px; height:28px; flex:0 0 28px;
+    border:1px solid var(--line); border-radius:50%;
+    display:grid; place-items:center;
+    font-family:"Inter", sans-serif;
+    font-size:16px;
+    transition:.25s;
+  }
+  .faq-answer{
+    max-height:0; overflow:hidden;
+    transition:max-height .35s ease;
+  }
+  .faq-answer p{
+    padding:0 50px 22px 4px;
+    color:var(--muted); font-size:14px; line-height:1.75;
+  }
+  .faq-item.active .faq-icon{
+    transform:rotate(45deg);
+    background:var(--night); color:var(--white);
+  }
+
+  /* ============ LEGAL / COMPANY ============ */
+  .legal{ background:var(--sand); }
+  .legal-box{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:34px;
+    background:var(--white);
+  }
+  .legal-box h3{
+    font-size:18px; font-weight:500; color:var(--night);
+    margin-bottom:14px;
+  }
+  .legal-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:30px;
+  }
+  .legal-box p{
+    font-size:13.5px; color:var(--muted); line-height:1.8;
+  }
+  .legal-address{
+    font-size:13.5px; color:var(--muted); line-height:1.9;
+  }
+  .legal-address strong{ color:var(--night); }
+
+  /* ============ CTA ============ */
+  .cta{ padding:100px 0; background:var(--white); }
+  .cta-box{
+    background:var(--night);
+    border-radius:20px;
+    padding:64px;
+    color:var(--sand);
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-box::before{
+    content:"";
+    position:absolute;
+    width:280px; height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(196,107,74,.28), transparent 70%);
+    right:-90px; bottom:-120px;
+  }
+  .cta-content{ position:relative; z-index:2; max-width:560px; }
+  .cta .kicker{ color:var(--clay-soft); }
+  .cta h2{
+    font-size:clamp(30px,4vw,44px);
+    font-weight:500; line-height:1.1;
+    margin-bottom:16px;
+  }
+  .cta p{
+    color:rgba(243,237,226,.7);
+    margin-bottom:26px;
+    font-size:15px;
+  }
+  .btn-light{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:14px 22px; border-radius:9px;
+    background:var(--sand); color:var(--night);
+    font-size:14px; font-weight:600;
+    transition:.2s;
+  }
+  .btn-light:hover{ background:var(--white); }
+
+  /* ============ FOOTER ============ */
+  footer{ background:var(--night-deep); color:var(--sand); padding:56px 0 24px; }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr .8fr .9fr 1.3fr;
+    gap:50px;
+    padding-bottom:44px;
+    border-bottom:1px solid rgba(243,237,226,.1);
+  }
+  .footer-brand .logo{ color:var(--sand); margin-bottom:18px; }
+  .footer-brand .logo-mark{ background:var(--clay); }
+  .footer-brand .logo-mark::before{ background:var(--night-deep); }
+  .footer-brand p{
+    max-width:300px; color:rgba(243,237,226,.5); font-size:13px; line-height:1.8;
+  }
+  .footer-col h4{
+    color:var(--clay-soft); text-transform:uppercase;
+    font-size:10px; letter-spacing:.14em; margin-bottom:16px;
+  }
+  .footer-col a{
+    display:block; color:rgba(243,237,226,.6);
+    font-size:13px; margin-bottom:9px; transition:.2s;
+  }
+  .footer-col a:hover{ color:var(--white); }
+  .footer-address{
+    color:rgba(243,237,226,.5); font-size:12px; line-height:1.8;
+  }
+  .footer-address strong{ color:rgba(243,237,226,.8); }
+  .footer-bottom{
+    padding-top:20px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:20px; color:rgba(243,237,226,.38); font-size:11px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .menu-toggle{ display:grid; place-items:center; }
+    .nav.mobile-open{ position:relative; }
+    .nav.mobile-open .nav-links{
+      display:flex; position:absolute; top:56px; left:0; right:0;
+      margin:0; padding:20px;
+      border-radius:14px;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:var(--white);
+      box-shadow:0 20px 45px rgba(16,27,38,.12);
+    }
+    .nav.mobile-open .nav-links a{
+      padding:13px 4px; border-bottom:1px solid var(--line);
+    }
+    .nav.mobile-open .nav-links a:last-child{ border-bottom:0; }
+    .nav.mobile-open .nav-cta{ margin-top:8px; text-align:center; }
+
+    .hero-grid{ grid-template-columns:1fr; gap:40px; }
+    .product-grid{ grid-template-columns:1fr; }
+    .about-grid{ grid-template-columns:1fr; gap:40px; }
+    .strip-grid{ grid-template-columns:1fr; gap:16px; }
+    .legal-grid{ grid-template-columns:1fr; gap:24px; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+
+  @media (max-width:600px){
+    .container{ width:min(100% - 32px, var(--max)); }
+    .header{ padding:14px 0; }
+    .hero{ padding:120px 0 60px; }
+    .hero h1{ font-size:38px; }
+    .section{ padding:72px 0; }
+    .support-card{ padding:30px 20px; }
+    .cta-box{ padding:40px 24px; }
+    .legal-box{ padding:24px; }
+    .footer-grid{ grid-template-columns:1fr; gap:32px; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container">
+    <nav class="nav" id="nav">
+      <a href="#home" class="logo">
+        <span class="logo-mark"></span>
+        Prayer App
+      </a>
+
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#produto">How it works</a>
+        <a href="#suporte">Suporte</a>
+        <a href="#faq">FAQ</a>
+        <a href="#suporte" class="nav-cta">Falar com a gente</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Daily prayer · Personal reflection</div>
+          <h1>One minute of pause before you start your day.</h1>
+          <p class="hero-desc">
+            Prayer App é um aplicativo digital de conteúdo educacional para quem
+            quer construir o hábito de orar e refletir todos os dias, com
+            textos curtos, áudios guiados e um lembrete gentil no seu horário.
+          </p>
+          <div class="hero-actions">
+            <a href="#produto" class="btn-primary">See how it works →</a>
+            <a href="#sobre" class="btn-ghost">Learn about the project</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-label">Today's reflection</div>
+          <blockquote>
+            "Um dia começa melhor quando a mente para, mesmo que por um minuto,
+            antes de seguir em frente."
+          </blockquote>
+          <footer>Excerpt from Prayer App content</footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <section class="strip">
+    <div class="container">
+      <div class="strip-grid">
+        <div class="strip-item">
+          <strong>One-time purchase</strong>
+          Access with no monthly fee or recurring charges
+        </div>
+        <div class="strip-item">
+          <strong>100% digital</strong>
+          Content accessed directly in the app, with no physical materials
+        </div>
+        <div class="strip-item">
+          <strong>At your own pace</strong>
+          No deadlines, no pressure — access it whenever you want
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTO -->
+  <section class="section product" id="produto">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">What you will find in the app</div>
+        <h2>A simple space to pray and reflect.</h2>
+        <p>
+          O Prayer App reúne conteúdo educacional em formato de texto e áudio,
+          organizado para caber na sua rotina — de manhã, à noite, ou nos
+          momentos em que você sentir necessidade de pausa.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="tag">Guided prayers</div>
+          <h3>Texts for everyday life</h3>
+          <p>
+            Conteúdo escrito pensado para leitura rápida, com temas variados
+            para diferentes momentos e necessidades pessoais.
+          </p>
+        </div>
+
+        <div class="product-card">
+          <div class="tag">Narrated audio</div>
+          <h3>For peaceful listening</h3>
+          <p>
+            Faixas de áudio para quem prefere ouvir enquanto caminha, viaja
+            ou simplesmente descansa os olhos.
+          </p>
+        </div>
+
+        <div class="product-card">
+          <div class="tag">Daily reminder</div>
+          <h3>A gentle nudge</h3>
+          <p>
+            Um aviso simples no horário que você escolher, para ajudar a
+            manter a constância sem virar mais uma obrigação.
+          </p>
+        </div>
+
+        <div class="product-card">
+          <div class="tag">Library</div>
+          <h3>Content to revisit</h3>
+          <p>
+            Tudo o que você já acessou fica disponível para reler ou reouvir
+            sempre que fizer sentido para você.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section about" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <div class="kicker">About Prayer App</div>
+          <h2>Made for those seeking consistency, not perfection.</h2>
+          <p class="about-lead">
+            O Prayer App nasceu da ideia simples de que um minuto de reflexão
+            bem colocado no dia vale mais do que uma prática longa e rara.
+          </p>
+        </div>
+
+        <ul class="about-list">
+          <li>
+            <h4>Educational content</h4>
+            <p>
+              O material é oferecido com finalidade educacional e de
+              desenvolvimento pessoal, sem prometer resultados específicos.
+            </p>
+          </li>
+          <li>
+            <h4>Individual use</h4>
+            <p>
+              Cada pessoa avança no próprio ritmo. Não existe ranking,
+              cobrança de desempenho ou comparação entre usuários.
+            </p>
+          </li>
+          <li>
+            <h4>Transparent purchase</h4>
+            <p>
+              O valor pago dá acesso único ao conteúdo do aplicativo, sem
+              renovação automática ou cobranças escondidas.
+            </p>
+          </li>
+          <li>
+            <h4>Real support</h4>
+            <p>
+              Dúvidas sobre acesso, cobrança ou reembolso são respondidas por
+              uma pessoa da nossa equipe, não por um robô de atendimento.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPORTE -->
+  <section class="section support" id="suporte">
+    <div class="container">
+      <div class="support-card">
+        <div class="kicker">Support</div>
+        <h2>Need help?</h2>
+        <p>
+          Se você tiver dúvidas sobre acesso ao conteúdo, cobrança ou quiser
+          solicitar reembolso, escreva para a nossa equipe. Respondemos em
+          até 2 dias úteis.
+        </p>
+        <a class="support-email" href="mailto:suporte@prayerapp.site">✉ suporte@prayerapp.site</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <div class="kicker" style="justify-content:center;display:flex;">Frequently asked questions</div>
+        <h2>Before you subscribe... actually, purchase.</h2>
+        <p>A few quick answers about Prayer App.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            What is Prayer App?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              É um aplicativo digital com conteúdo educacional voltado à
+              prática de oração e reflexão diária, em formato de texto e
+              áudio, acessado pelo navegador ou aplicativo.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Is it a monthly subscription?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Não. O Prayer App é vendido como uma compra única. Não existe
+              mensalidade nem cobrança recorrente associada ao produto.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I get access after purchase?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Após a confirmação do pagamento, você recebe por e-mail o link
+              e as instruções de acesso ao conteúdo do aplicativo.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Does the app guarantee specific results?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Não. O Prayer App tem finalidade educacional e informativa.
+              Não garantimos resultados espirituais, emocionais ou de
+              qualquer outra natureza — a experiência de cada pessoa varia.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I request a refund?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Sim. Entre em contato pelo e-mail de suporte informando o
+              pedido e o motivo — nossa equipe avalia e responde dentro do
+              prazo informado na confirmação de compra.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL / EMPRESA -->
+  <section class="section legal">
+    <div class="container">
+      <div class="legal-box">
+        <div class="legal-grid">
+          <div>
+            <h3>Who sells this product</h3>
+            <p>
+              Prayer App is offered by the seller identified below,
+              responsible for sales, billing, and customer support related to
+              this product. The information below is provided for transparency
+              and seller identification.
+            </p>
+          </div>
+          <div class="legal-address">
+            <strong></strong><br>
+            Responsible party tax ID: 308.333.938-04<br><br>
+            92 Rua Nicolau Antônio Lobo<br>
+            Vila Franco<br>
+            São Paulo — SP<br>
+            Postal Code 13690-000<br>
+            Descalvado, Brazil
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-content">
+          <div class="kicker">Start whenever you want</div>
+          <h2>Your next minute of pause can start today.</h2>
+          <p>
+            Acesse o Prayer App e comece no seu próprio ritmo, sem prazos e
+            sem pressa.
+          </p>
+          <a href="#suporte" class="btn-light">Contact support →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-mark"></span>
+          Prayer App
+        </a>
+        <p>
+          Digital educational app focused on prayer, daily reflection,
+          and personal development.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#produto">How it works</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#suporte">Suporte</a>
+        <a href="mailto:suporte@prayerapp.site">Email</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company information</h4>
+        <div class="footer-address">
+          <strong></strong><br>
+          Tax ID: 308.333.938-04<br><br>
+          92 Rua Nicolau Antônio Lobo<br>
+          Vila Franco<br>
+          São Paulo — SP<br>
+          Postal Code 13690-000<br>
+          Descalvado, Brazil
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> All rights reserved.</span>
+      <span>Prayer App · Educational content digital</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById("header");
+  function updateHeader(){
+    if(window.scrollY > 30){ header.classList.add("scrolled"); }
+    else{ header.classList.remove("scrolled"); }
+  }
+  window.addEventListener("scroll", updateHeader);
+  updateHeader();
+
+  const menuToggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("nav");
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("mobile-open");
+    menuToggle.textContent = nav.classList.contains("mobile-open") ? "×" : "☰";
+  });
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("mobile-open");
+      menuToggle.textContent = "☰";
+    });
+  });
+
+  document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+      const item = button.parentElement;
+      const answer = item.querySelector(".faq-answer");
+      document.querySelectorAll(".faq-item").forEach(other => {
+        if(other !== item){
+          other.classList.remove("active");
+          other.querySelector(".faq-answer").style.maxHeight = null;
+        }
+      });
+      item.classList.toggle("active");
+      if(item.classList.contains("active")){
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      } else {
+        answer.style.maxHeight = null;
+      }
+    });
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
