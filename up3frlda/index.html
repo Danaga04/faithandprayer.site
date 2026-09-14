@@ -1,159 +1,122 @@
-```html
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Offre Optionnelle — Bien-Être Intime</title>
+  <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+  <script>digistoreUpsell()</script>
 
-<!-- DIGISTORE24 UPSELL -->
-<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
-<script>digistoreUpsell()</script>
+  <title>Upsell — Séance de Réflexion Guidée</title>
 
-<style>
-:root{
-  --bg:#faf7f6;
-  --card:#ffffff;
-  --primary:#16a34a;
-  --dark:#111827;
-  --muted:#6b7280;
-  --danger:#b91c1c;
-}
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --accent: #3b82f6;
+      --muted: #6b7280;
+      --danger: #b91c1c;
+      --gold: #d4af37;
+    }
 
-*{
-  box-sizing:border-box;
-}
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      background: var(--bg);
+      color: #111;
+    }
 
-body{
-  margin:0;
-  padding:0;
-  background:var(--bg);
-  font-family:Poppins, Arial, sans-serif;
-  color:var(--dark);
-}
+    .container {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
 
-.container{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:30px 15px;
-}
+    .card {
+      width: 100%;
+      max-width: 720px;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-.card{
-  width:100%;
-  max-width:720px;
-  background:var(--card);
-  border-radius:18px;
-  padding:40px 28px;
-  text-align:center;
-  box-shadow:0 10px 40px rgba(0,0,0,.08);
-}
+    .alert {
+      background: var(--danger);
+      color: #fff;
+      font-weight: 700;
+      padding: 12px 0;
+      text-transform: uppercase;
+      font-size: 16px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
 
-.alert{
-  background:var(--danger);
-  color:#fff;
-  padding:12px;
-  border-radius:10px;
-  font-size:15px;
-  font-weight:700;
-  margin-bottom:20px;
-  text-transform:uppercase;
-}
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
 
-.tag{
-  color:var(--primary);
-  font-size:14px;
-  font-weight:700;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
+    .subtitle {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
 
-h1{
-  font-size:32px;
-  line-height:1.2;
-  margin-bottom:15px;
-}
+    .price {
+      font-size: 22px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
 
-.highlight{
-  color:var(--primary);
-}
+    p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
 
-.price{
-  color:var(--primary);
-  font-size:28px;
-  font-weight:700;
-  margin-bottom:20px;
-}
+    ul {
+      text-align: left;
+      max-width: 520px;
+      margin: 20px auto;
+      color: var(--muted);
+    }
 
-p{
-  color:var(--muted);
-  line-height:1.7;
-  font-size:16px;
-}
+    .btn {
+      display: block;
+      padding: 16px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 10px;
+    }
 
-ul{
-  text-align:left;
-  max-width:520px;
-  margin:25px auto;
-  color:var(--muted);
-  line-height:1.8;
-}
+    .accept {
+      background: #28a745;
+      color: white;
+    }
 
-.btn{
-  display:block;
-  width:100%;
-  padding:18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-size:18px;
-  font-weight:700;
-  transition:.2s;
-  border:none;
-}
+    .decline {
+      background: #dc3545;
+      color: white;
+      font-size: 14px;
+      margin-top: 10px;
+      display: block;
+    }
 
-.accept{
-  background:var(--primary);
-  color:#fff;
-  margin-top:10px;
-}
-
-.accept:hover{
-  transform:scale(1.02);
-}
-
-.button-price{
-  margin-top:12px;
-  font-size:18px;
-  font-weight:700;
-  color:var(--dark);
-}
-
-.guarantee{
-  font-size:18px;
-  font-weight:700;
-  margin-top:28px;
-}
-
-.small{
-  font-size:12px;
-  color:#777;
-  margin-top:16px;
-  line-height:1.6;
-}
-
-footer{
-  margin-top:30px;
-  font-size:13px;
-  color:#777;
-}
-
-footer a{
-  color:#777;
-  text-decoration:none;
-}
-</style>
+    .small {
+      font-size: 12px;
+      color: #777;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 
 <body>
@@ -161,70 +124,66 @@ footer a{
 <div class="container">
 <div class="card">
 
-<div class="alert">
-⚠️ ATTENDEZ ! VOTRE COMMANDE N'EST PAS ENCORE TERMINÉE
+<div class="alert">⚠️ NE FERMEZ PAS CETTE PAGE</div>
+
+<h1>Séance de Réflexion Guidée Inspirée de l'Archange Michel</h1>
+
+<div class="subtitle">
+Une expérience audio structurée pour la concentration, la clarté et la réflexion personnelle
 </div>
 
-<div class="tag">
-Offre Optionnelle Exclusive
-</div>
-
-<h1>
-Guide <span class="highlight">Sacred Connection</span>
-</h1>
-
-<div class="price">
-Seulement 79 $
-</div>
+<div class="price">Seulement 39 €</div>
 
 <p>
-Ce guide numérique optionnel a été conçu pour les adultes souhaitant améliorer l'intimité, la communication, la confiance et la connexion émotionnelle grâce à des techniques respectueuses axées sur les relations.
+Cette séance optionnelle est conçue comme une expérience audio guidée qui combine réflexion, respiration calme et techniques structurées de pleine conscience.
 </p>
 
 <p>
-Le contenu éducatif comprend des conseils sur le bien-être intime, des leçons guidées et des exercices de connexion conçus pour les couples souhaitant vivre une expérience intime plus détendue et agréable.
+Inspirée de références symboliques traditionnelles, cette séance peut être utilisée dans le cadre de votre routine quotidienne afin de créer des moments de pause et de clarté mentale.
 </p>
 
 <ul>
-<li>✔️ Leçons guidées axées sur l'intimité</li>
-<li>✔️ Conseils pour renforcer la confiance et la communication</li>
-<li>✔️ Techniques de relaxation et de connexion</li>
-<li>✔️ Contenu éducatif axé sur les relations</li>
-<li>✔️ Conseils de bien-être adaptés aux débutants</li>
+<li>✔️ Séance audio guidée pour la relaxation et la concentration</li>
+<li>✔️ Réflexion structurée pour favoriser la prise de conscience au quotidien</li>
+<li>✔️ Routine simple que vous pouvez suivre à votre propre rythme</li>
+<li>✔️ Complète l'expérience du programme principal</li>
 </ul>
 
-<!-- DIGISTORE24 UPSELL BUTTON -->
-<digistore-upsell-button template="light"></digistore-upsell-button>
+<a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn accept">
+Ajouter à ma commande – 39 €
+</a>
 
-<div class="button-price">
-Paiement unique : 79 $
-</div>
+<a href="https://www.checkout-ds24.com/answer/no" class="btn decline">
+Non merci
+</a>
 
-<div class="guarantee">
-Garantie de remboursement de 60 jours
-</div>
+<p class="small">
+Ce contenu est éducatif et destiné au développement personnel et à la pratique de la pleine conscience. Il ne garantit aucun résultat spécifique et ne constitue pas une solution médicale, financière ou psychologique.
+</p>
 
-<p>
-Vous pouvez essayer le guide numérique pendant 60 jours. Si vous n'êtes pas satisfait, vous pouvez demander un remboursement conformément à la politique de remboursement de la plateforme.
+<p class="small" style="font-weight:600;">
+Garantie satisfait ou remboursé de 60 jours
 </p>
 
 <p class="small">
-Ce produit est destiné uniquement à des fins éducatives et de bien-être relationnel. Aucun résultat ou effet spécifique n'est garanti.
+Vous pouvez essayer le programme pendant 60 jours. Si vous n'êtes pas satisfait, vous pouvez demander un remboursement intégral en contactant le support.
 </p>
 
 <p class="small">
 Il s'agit d'un produit numérique. Aucun produit physique ne sera expédié. L'accès est fourni en ligne après l'achat.
 </p>
 
-<footer>
-<a href="https://sacredchantguide.site/privacy-policy/">Politique de confidentialité</a> |
-<a href="https://sacredchantguide.site/terms/">Conditions d'utilisation</a> |
-<a href="https://sacredchantguide.site/contact/">Contact</a>
+</div>
+</div>
+
+<footer style="text-align:center; font-size:13px; margin-top:30px; color:#777;">
+  <a href="https://sacredchantguide.site/privacy-policy/">Politique de confidentialité</a> |
+  <a href="https://sacredchantguide.site/terms/">Conditions d'utilisation</a> |
+  <a href="https://sacredchantguide.site/contact/">Contact</a>
 </footer>
 
-</div>
-</div>
+<script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+<script> new OcuExternal(); </script>
 
 </body>
 </html>
-```
