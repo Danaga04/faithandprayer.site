@@ -1,230 +1,183 @@
-```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalisez votre commande</title>
 
-<title>Offre Optionnelle — Guide de Massage Sacred Touch</title>
+    <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+    <script>digistoreUpsell()</script>
 
-<!-- DIGISTORE24 UPSELL -->
-<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
-<script>digistoreUpsell()</script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --bg:#f7f5f2;
-  --card:#ffffff;
-  --primary:#16a34a;
-  --dark:#111827;
-  --muted:#6b7280;
-  --danger:#b91c1c;
-}
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-*{
-  box-sizing:border-box;
-}
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
 
-body{
-  margin:0;
-  padding:0;
-  background:var(--bg);
-  font-family:Poppins, Arial, sans-serif;
-  color:var(--dark);
-}
+        h1 {
+            text-align: center;
+            font-weight: 700;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
 
-.container{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:30px 15px;
-}
+        h2 {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-.card{
-  width:100%;
-  max-width:720px;
-  background:var(--card);
-  border-radius:18px;
-  padding:40px 28px;
-  text-align:center;
-  box-shadow:0 10px 40px rgba(0,0,0,.08);
-}
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
 
-.alert{
-  background:var(--danger);
-  color:#fff;
-  padding:12px;
-  border-radius:10px;
-  font-size:15px;
-  font-weight:700;
-  margin-bottom:20px;
-  text-transform:uppercase;
-}
+        ul {
+            list-style: none;
+            padding: 0;
+        }
 
-.tag{
-  color:var(--primary);
-  font-size:14px;
-  font-weight:700;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 1.2em;
+            position: relative;
+        }
 
-h1{
-  font-size:32px;
-  line-height:1.2;
-  margin-bottom:15px;
-}
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #007bff;
+        }
 
-.highlight{
-  color:var(--primary);
-}
+        .price-box {
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px dashed #ccc;
+        }
 
-.price{
-  color:var(--primary);
-  font-size:28px;
-  font-weight:700;
-  margin-bottom:20px;
-}
+        .price-box strong {
+            font-size: 28px;
+            color: #0056b3;
+        }
 
-p{
-  color:var(--muted);
-  line-height:1.7;
-  font-size:16px;
-}
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
 
-ul{
-  text-align:left;
-  max-width:520px;
-  margin:25px auto;
-  color:var(--muted);
-  line-height:1.8;
-}
+        .accept {
+            background-color: #28a745;
+            color: white;
+        }
 
-.btn{
-  display:block;
-  width:100%;
-  padding:18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-size:18px;
-  font-weight:700;
-  transition:.2s;
-  border:none;
-}
+        .decline {
+            background-color: #dc3545;
+            color: white;
+            font-size: 14px;
+        }
 
-.accept{
-  background:var(--primary);
-  color:#fff;
-  margin-top:10px;
-}
-
-.accept:hover{
-  transform:scale(1.02);
-}
-
-.button-price{
-  margin-top:12px;
-  font-size:18px;
-  font-weight:700;
-  color:var(--dark);
-}
-
-.guarantee{
-  font-size:18px;
-  font-weight:700;
-  margin-top:28px;
-}
-
-.small{
-  font-size:12px;
-  color:#777;
-  margin-top:16px;
-  line-height:1.6;
-}
-
-footer{
-  margin-top:30px;
-  font-size:13px;
-  color:#777;
-}
-
-footer a{
-  color:#777;
-  text-decoration:none;
-}
-</style>
+        .small {
+            font-size: 13px;
+            text-align: center;
+            color: #777;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 
 <body>
 
 <div class="container">
-<div class="card">
 
-<div class="alert">
-⚠️ ATTENDEZ ! VOTRE COMMANDE N'EST PAS ENCORE TERMINÉE
+    <h1>Offre supplémentaire</h1>
+
+    <h2>Approfondissez votre pratique avec le pack complet de séances guidées</h2>
+
+    <p>
+        Votre achat initial comprend l'expérience Sacred Chant principale. Cette mise à niveau optionnelle est conçue pour ceux qui souhaitent aller au-delà du programme principal et créer une routine quotidienne plus complète.
+    </p>
+
+    <p>
+        Au lieu d'une seule séance, ce pack vous offre une collection structurée de contenus guidés que vous pouvez utiliser à différents moments de votre journée.
+    </p>
+
+    <p><strong>Ce qui est inclus :</strong></p>
+
+    <ul>
+        <li>7 séances audio guidées – chacune avec un objectif différent (calme, conscience, présence, réflexion)</li>
+        <li>Progression structurée – suivez une routine simple sur plusieurs jours</li>
+        <li>Variété de pratiques – alternez les séances selon votre humeur ou votre emploi du temps</li>
+        <li>Expérience enrichie – apporte davantage de profondeur et de flexibilité au programme principal</li>
+    </ul>
+
+    <p>
+        Ce pack est idéal si vous souhaitez une expérience plus large et plus flexible, avec plusieurs séances pour favoriser la régularité au fil du temps.
+    </p>
+
+    <div class="price-box">
+        <p>Offre unique :</p>
+        <strong>39 €</strong>
+    </div>
+
+    <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn accept">
+        Ajouter à ma commande – 39 €
+    </a>
+
+    <a href="https://www.checkout-ds24.com/answer/no" class="btn decline">
+        Non merci
+    </a>
+
+    <p class="small">
+        Ce contenu est éducatif et destiné au développement personnel et à la pratique de la pleine conscience. Il ne garantit aucun résultat spécifique.
+    </p>
+
+    <p class="small" style="font-weight:600;">
+        Garantie satisfait ou remboursé de 60 jours
+    </p>
+
+    <p class="small">
+        Vous pouvez essayer le programme pendant 60 jours. Si vous n'êtes pas satisfait, vous pouvez demander un remboursement intégral en contactant le support.
+    </p>
+
+    <p class="small">
+        Il s'agit d'un produit numérique. Aucun produit physique ne sera expédié. L'accès est fourni en ligne après l'achat.
+    </p>
+
 </div>
 
-<div class="tag">
-Offre Optionnelle Exclusive
-</div>
-
-<h1>
-<span class="highlight">Sacred Touch</span> — Guide de Massage
-</h1>
-
-<div class="price">
-Seulement 69 $
-</div>
-
-<p>
-Ce guide numérique optionnel comprend des techniques de massage éducatives conçues pour aider les couples à améliorer la relaxation, la connexion et le bien-être général grâce à des pratiques de toucher conscient.
-</p>
-
-<p>
-Le contenu a été créé pour les adultes souhaitant apprendre des routines de massage relaxantes, des méthodes de détente corporelle et des techniques de toucher axées sur le bien-être, dans un format respectueux et professionnel.
-</p>
-
-<ul>
-<li>✔️ Routines de massage adaptées aux débutants</li>
-<li>✔️ Techniques de relaxation et de réduction du stress</li>
-<li>✔️ Méthodes de toucher corporel axées sur le bien-être</li>
-<li>✔️ Guide éducatif simple, étape par étape</li>
-<li>✔️ Idées pour favoriser la connexion et la relaxation en couple</li>
-</ul>
-
-<!-- DIGISTORE24 UPSELL BUTTON -->
-<digistore-upsell-button template="light"></digistore-upsell-button>
-
-<div class="button-price">
-Paiement unique : 69 $
-</div>
-
-<div class="guarantee">
-Garantie de remboursement de 60 jours
-</div>
-
-<p>
-Vous pouvez essayer le guide numérique pendant 60 jours. Si vous n'êtes pas satisfait, vous pouvez demander un remboursement conformément à la politique de remboursement de la plateforme.
-</p>
-
-<p class="small">
-Ce produit est fourni uniquement à des fins éducatives et de bien-être. Il ne constitue pas un avis médical, thérapeutique ou psychologique. Les expériences individuelles peuvent varier.
-</p>
-
-<p class="small">
-Il s'agit d'un produit numérique. Aucun produit physique ne sera expédié. L'accès est fourni en ligne après l'achat.
-</p>
-
-<footer>
-<a href="https://sacredchantguide.site/privacy-policy/">Politique de confidentialité</a> |
-<a href="https://sacredchantguide.site/terms/">Conditions d'utilisation</a> |
-<a href="https://sacredchantguide.site/contact/">Contact</a>
+<footer style="text-align:center; font-size:13px; margin-top:30px; color:#777;">
+    <a href="https://sacredchantguide.site/privacy-policy/">Politique de confidentialité</a> |
+    <a href="https://sacredchantguide.site/terms/">Conditions d'utilisation</a> |
+    <a href="https://sacredchantguide.site/contact/">Contact</a>
 </footer>
 
-</div>
-</div>
+<script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+<script> new OcuExternal(); </script>
 
 </body>
 </html>
-```
