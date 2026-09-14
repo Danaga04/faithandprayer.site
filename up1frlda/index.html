@@ -102,12 +102,23 @@
     color: white;
   }
 
+  /* BOTÃO DE RECUSA MAIS VISÍVEL */
   .decline {
-    text-decoration: underline;
-    color: #666;
-    font-size: 14px;
     display: block;
-    margin-top: 10px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin: 14px auto 0;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+
+  .decline:hover {
+    background: #b91c1c;
   }
 </style>
 </head>
@@ -144,7 +155,7 @@ AJOUTER À MA COMMANDE POUR 39 €
 </a>
 
 <a href="https://www.checkout-ds24.com/answer/no" class="decline">
-Non merci
+NON MERCI, JE PRÉFÈRE NE PAS AJOUTER CETTE OFFRE
 </a>
 
 <p style="font-size:12px; margin-top:15px;">
