@@ -1,230 +1,282 @@
-```html
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Offre Optionnelle — Guide de Boissons Naturelles Bien-Être</title>
+  <title>Offre Optionnelle — Guide de Boissons Naturelles Bien-Être</title>
 
-<!-- DIGISTORE24 UPSELL -->
-<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
-<script>digistoreUpsell()</script>
+  <style>
+    :root{
+      --bg:#f4f8f5;
+      --card:#ffffff;
+      --primary:#15803d;
+      --primary-hover:#166534;
+      --dark:#111827;
+      --muted:#6b7280;
+      --danger:#b91c1c;
+      --danger-hover:#991b1b;
+    }
 
-<style>
-:root{
-  --bg:#f4f8f5;
-  --card:#ffffff;
-  --primary:#15803d;
-  --dark:#111827;
-  --muted:#6b7280;
-  --danger:#b91c1c;
-}
+    *{
+      box-sizing:border-box;
+    }
 
-*{
-  box-sizing:border-box;
-}
+    body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      font-family:Poppins, Arial, sans-serif;
+      color:var(--dark);
+    }
 
-body{
-  margin:0;
-  padding:0;
-  background:var(--bg);
-  font-family:Poppins, Arial, sans-serif;
-  color:var(--dark);
-}
+    .container{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:30px 15px;
+    }
 
-.container{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:30px 15px;
-}
+    .card{
+      width:100%;
+      max-width:720px;
+      background:var(--card);
+      border-radius:18px;
+      padding:40px 28px;
+      text-align:center;
+      box-shadow:0 10px 40px rgba(0,0,0,.08);
+    }
 
-.card{
-  width:100%;
-  max-width:720px;
-  background:var(--card);
-  border-radius:18px;
-  padding:40px 28px;
-  text-align:center;
-  box-shadow:0 10px 40px rgba(0,0,0,.08);
-}
+    .alert{
+      background:var(--danger);
+      color:#fff;
+      padding:12px;
+      border-radius:10px;
+      font-size:15px;
+      font-weight:700;
+      margin-bottom:20px;
+      text-transform:uppercase;
+    }
 
-.alert{
-  background:var(--danger);
-  color:#fff;
-  padding:12px;
-  border-radius:10px;
-  font-size:15px;
-  font-weight:700;
-  margin-bottom:20px;
-  text-transform:uppercase;
-}
+    .tag{
+      color:var(--primary);
+      font-size:14px;
+      font-weight:700;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
 
-.tag{
-  color:var(--primary);
-  font-size:14px;
-  font-weight:700;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
+    h1{
+      font-size:32px;
+      line-height:1.2;
+      margin:0 0 15px;
+    }
 
-h1{
-  font-size:32px;
-  line-height:1.2;
-  margin-bottom:15px;
-}
+    .highlight{
+      color:var(--primary);
+    }
 
-.highlight{
-  color:var(--primary);
-}
+    .price{
+      color:var(--primary);
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:20px;
+    }
 
-.price{
-  color:var(--primary);
-  font-size:28px;
-  font-weight:700;
-  margin-bottom:20px;
-}
+    p{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:16px;
+    }
 
-p{
-  color:var(--muted);
-  line-height:1.7;
-  font-size:16px;
-}
+    ul{
+      text-align:left;
+      max-width:520px;
+      margin:25px auto;
+      color:var(--muted);
+      line-height:1.8;
+      padding-left:25px;
+    }
 
-ul{
-  text-align:left;
-  max-width:520px;
-  margin:25px auto;
-  color:var(--muted);
-  line-height:1.8;
-}
+    .buttons{
+      margin-top:30px;
+    }
 
-.btn{
-  display:block;
-  width:100%;
-  padding:18px;
-  border-radius:12px;
-  text-decoration:none;
-  font-size:18px;
-  font-weight:700;
-  transition:.2s;
-  border:none;
-}
+    .btn{
+      display:block;
+      width:100%;
+      padding:18px 15px;
+      border-radius:12px;
+      font-size:18px;
+      font-weight:700;
+      text-align:center;
+      border:none;
+      cursor:default;
+    }
 
-.accept{
-  background:var(--primary);
-  color:#fff;
-  margin-top:10px;
-}
+    .accept{
+      background:var(--primary);
+      color:#fff;
+    }
 
-.accept:hover{
-  transform:scale(1.02);
-}
+    .decline{
+      background:var(--danger);
+      color:#fff;
+      margin-top:14px;
+    }
 
-.button-price{
-  margin-top:12px;
-  font-size:18px;
-  font-weight:700;
-  color:var(--dark);
-}
+    .button-price{
+      margin-top:10px;
+      font-size:15px;
+      font-weight:600;
+      color:var(--dark);
+    }
 
-.guarantee{
-  font-size:18px;
-  font-weight:700;
-  margin-top:28px;
-}
+    .guarantee{
+      font-size:18px;
+      font-weight:700;
+      margin-top:28px;
+      color:var(--dark);
+    }
 
-.small{
-  font-size:12px;
-  color:#777;
-  margin-top:16px;
-  line-height:1.6;
-}
+    .small{
+      font-size:12px;
+      color:#777;
+      margin-top:16px;
+      line-height:1.6;
+    }
 
-footer{
-  margin-top:30px;
-  font-size:13px;
-  color:#777;
-}
+    footer{
+      margin-top:30px;
+      font-size:13px;
+      color:#777;
+    }
 
-footer a{
-  color:#777;
-  text-decoration:none;
-}
-</style>
+    footer a{
+      color:#777;
+      text-decoration:none;
+    }
+
+    @media(max-width:600px){
+      .card{
+        padding:30px 20px;
+      }
+
+      h1{
+        font-size:27px;
+      }
+
+      .price{
+        font-size:25px;
+      }
+
+      .btn{
+        font-size:17px;
+        padding:17px 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
-<div class="card">
+  <div class="container">
+    <div class="card">
 
-<div class="alert">
-⚠️ ATTENDEZ ! VOTRE COMMANDE N'EST PAS ENCORE TERMINÉE
-</div>
+      <div class="alert">
+        ⚠️ ATTENDEZ ! VOTRE COMMANDE N'EST PAS ENCORE TERMINÉE
+      </div>
 
-<div class="tag">
-Offre Optionnelle Exclusive
-</div>
+      <div class="tag">
+        Offre Optionnelle Exclusive
+      </div>
 
-<h1>
-Guide Bien-Être à Base de <span class="highlight">Boissons Naturelles au Bicarbonate</span>
-</h1>
+      <h1>
+        Guide Bien-Être à Base de
+        <span class="highlight">Boissons Naturelles au Bicarbonate</span>
+      </h1>
 
-<div class="price">
-Seulement 59 $
-</div>
+      <div class="price">
+        Seulement 39 €
+      </div>
 
-<p>
-Ce guide numérique optionnel comprend des recettes simples ainsi que des informations éducatives sur les boissons naturelles préparées avec des ingrédients courants de cuisine, notamment des idées de boissons à base de bicarbonate.
-</p>
+      <p>
+        Ce guide numérique optionnel comprend des recettes simples ainsi que
+        des informations éducatives sur les boissons naturelles préparées avec
+        des ingrédients courants de cuisine, notamment des idées de boissons
+        à base de bicarbonate.
+      </p>
 
-<p>
-Le contenu a été conçu pour les personnes intéressées par les habitudes de vie saines, les routines d'hydratation et la préparation de boissons naturelles à la maison.
-</p>
+      <p>
+        Le contenu a été conçu pour les personnes intéressées par les habitudes
+        de vie saines, les routines d'hydratation et la préparation de boissons
+        naturelles à la maison.
+      </p>
 
-<ul>
-<li>✔️ Recettes de boissons naturelles faciles à suivre</li>
-<li>✔️ Idées de boissons bien-être pour chaque jour</li>
-<li>✔️ Conseils sur l'hydratation et le mode de vie</li>
-<li>✔️ Combinaisons simples d'ingrédients</li>
-<li>✔️ Contenu éducatif pour vos routines personnelles de bien-être</li>
-</ul>
+      <ul>
+        <li>✔️ Recettes de boissons naturelles faciles à suivre</li>
+        <li>✔️ Idées de boissons bien-être pour chaque jour</li>
+        <li>✔️ Conseils sur l'hydratation et le mode de vie</li>
+        <li>✔️ Combinaisons simples d'ingrédients</li>
+        <li>✔️ Contenu éducatif pour vos routines personnelles de bien-être</li>
+      </ul>
 
-<!-- DIGISTORE24 UPSELL BUTTON -->
-<digistore-upsell-button template="light"></digistore-upsell-button>
+      <div class="buttons">
 
-<div class="button-price">
-Paiement unique : 59 $
-</div>
+        <!-- BOUTON D'ACCEPTATION -->
+        <div class="btn accept">
+          ACHETER MAINTENANT — 39 €
+        </div>
 
-<div class="guarantee">
-Garantie de remboursement de 60 jours
-</div>
+        <div class="button-price">
+          Paiement unique de 39 €
+        </div>
 
-<p>
-Vous pouvez essayer le guide numérique pendant 60 jours. Si vous n'êtes pas satisfait, vous pouvez demander un remboursement conformément à la politique de remboursement de la plateforme.
-</p>
+        <!-- BOUTON DE REFUS -->
+        <div class="btn decline">
+          NON MERCI — JE PRÉFÈRE CONTINUER SANS CETTE OFFRE
+        </div>
 
-<p class="small">
-Ce produit est fourni à des fins éducatives uniquement et ne constitue pas un avis médical, un diagnostic ou un traitement. Aucun résultat spécifique n'est garanti.
-</p>
+      </div>
 
-<p class="small">
-Il s'agit d'un produit numérique. Aucun produit physique ne sera expédié. L'accès est fourni en ligne après l'achat.
-</p>
+      <div class="guarantee">
+        Garantie de remboursement de 60 jours
+      </div>
 
-<footer>
-<a href="https://sacredchantguide.site/privacy-policy">Politique de confidentialité</a> |
-<a href="https://sacredchantguide.site/terms">Conditions d'utilisation</a> |
-<a href="https://sacredchantguide.site/contact/">Contact</a>
-</footer>
+      <p>
+        Vous pouvez essayer le guide numérique pendant 60 jours. Si vous
+        n'êtes pas satisfait, vous pouvez demander un remboursement
+        conformément à la politique de remboursement de la plateforme.
+      </p>
 
-</div>
-</div>
+      <p class="small">
+        Ce produit est fourni à des fins éducatives uniquement et ne constitue
+        pas un avis médical, un diagnostic ou un traitement. Aucun résultat
+        spécifique n'est garanti.
+      </p>
+
+      <p class="small">
+        Il s'agit d'un produit numérique. Aucun produit physique ne sera
+        expédié. L'accès est fourni en ligne après l'achat.
+      </p>
+
+      <footer>
+        <a href="#">
+          Politique de confidentialité
+        </a>
+        |
+        <a href="#">
+          Conditions d'utilisation
+        </a>
+        |
+        <a href="#">
+          Contact
+        </a>
+      </footer>
+
+    </div>
+  </div>
 
 </body>
 </html>
-```
