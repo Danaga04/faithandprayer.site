@@ -1,218 +1,332 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
  
-<script src="https://www.digistore24-scripts.com/service/digistore.js"></script><script>digistoreUpsell()</script>
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script>digistoreUpsell()</script>
 
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>achat en cours de vérification</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            padding-bottom: 150px;
-            font-family: "Poppins", sans-serif;
-            background: #ffffff;
-            color: #000000;
-            line-height: 1.5;
-            text-align: center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>achat en cours de vérification</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        padding-bottom: 150px;
+        font-family: "Poppins", sans-serif;
+        background: #ffffff;
+        color: #000000;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .step {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 25px 0 10px;
+    }
+
+    .progress {
+        width: 90%;
+        margin: 0 auto;
+        height: 30px;
+        border-radius: 5px;
+        overflow: hidden;
+        background: #ddd;
+        position: relative;
+    }
+
+    .progress-bar {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #16a34a, #0d6b3a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: white;
+        animation: loadProgress 2.8s ease-in-out forwards;
+        position: relative;
+    }
+
+    .progress-bar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.7),
+            transparent
+        );
+        animation: shimmer 1.8s infinite;
+    }
+
+    .warning {
+        font-size: 15px;
+        margin: 15px 0;
+        color: #d80000;
+    }
+
+    vturb-smartplayer {
+        display: block;
+        width: 100%;
+        max-width: 800px;
+        margin: 20px auto;
+    }
+
+    /* BOTÕES */
+    .decision-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        width: 100%;
+        max-width: 500px;
+        margin: 30px auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* BOTÃO ACEITAR */
+    .btn-yes {
+        width: 100%;
+        background: #25D366;
+        color: #fff;
+        padding: 18px 20px;
+        font-size: 22px;
+        font-weight: 800;
+        text-transform: uppercase;
+        border-radius: 8px;
+        text-decoration: none;
+        box-sizing: border-box;
+        animation: pulse-green 1.5s infinite;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+    }
+
+    /* BOTÃO RECUSAR */
+    .btn-no {
+        color: #d80000;
+        font-size: 17px;
+        font-weight: 700;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    #esconder-texto {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 20px;
+        text-align: left;
+        font-size: 17px;
+        line-height: 1.6;
+        color: #000;
+    }
+
+    #esconder-texto h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+
+    @keyframes pulse-green {
+        0% {
+            transform: scale(1);
         }
-        .step {
-            font-size: 18px;
-            font-weight: 700;
-            margin: 25px 0 10px;
+
+        50% {
+            transform: scale(1.04);
         }
-        .progress {
-            width: 90%;
-            margin: 0 auto;
-            height: 30px;
-            border-radius: 5px;
-            overflow: hidden;
-            background: #ddd;
-            position: relative;
+
+        100% {
+            transform: scale(1);
         }
-        .progress-bar {
+    }
+
+    @keyframes loadProgress {
+        from {
             width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, #16a34a, #0d6b3a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            animation: loadProgress 2.8s ease-in-out forwards;
-            position: relative;
         }
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
-            animation: shimmer 1.8s infinite;
+
+        to {
+            width: 95%;
         }
-        .warning {
-            font-size: 15px;
-            margin: 15px 0;
-            color: #d80000;
+    }
+
+    @keyframes shimmer {
+        0% {
+            transform: translateX(-100%);
         }
-        vturb-smartplayer {
-            display: block;
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
+
+        100% {
+            transform: translateX(400%);
         }
-        .decision-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            width: 100%;
-            max-width: 500px;
-            margin: 30px auto;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+    }
+
+    .sticky-warning-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffcc00;
+        color: #000000;
+        text-align: center;
+        padding: 12px 10px;
+        font-size: 14px;
+        font-weight: 800;
+        text-transform: uppercase;
+        z-index: 9999;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 480px) {
+
         .btn-yes {
-            width: 100%;
-            background: #25D366;
-            color: #fff;
-            padding: 18px 20px;
-            font-size: 22px;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 8px;
-            text-decoration: none;
-            box-sizing: border-box;
-            animation: pulse-green 1.5s infinite;
-            display: inline-block;
+            font-size: 18px;
+            padding: 16px;
         }
+
         .btn-no {
-            color: #d80000;
-            font-size: 17px;
-            font-weight: 700;
-            text-decoration: underline;
-            cursor: pointer;
+            font-size: 15px;
         }
-        #esconder-texto {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: left;
-            font-size: 17px;
-            line-height: 1.6;
-            color: #000;
-        }
-        #esconder-texto h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        @keyframes pulse-green {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.04); }
-            100% { transform: scale(1); }
-        }
-        @keyframes loadProgress {
-            from { width: 0%; }
-            to { width: 95%; }
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(400%); }
-        }
-        .sticky-warning-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #ffcc00;
-            color: #000000;
-            text-align: center;
-            padding: 12px 10px;
-            font-size: 14px;
-            font-weight: 800;
-            text-transform: uppercase;
-            z-index: 9999;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
-        }
-        @media (max-width: 480px) {
-            .btn-yes { font-size: 18px; padding: 16px; }
-            .btn-no { font-size: 15px; }
-        }
-    </style>
+    }
+</style>
+
 </head>
+
 <body>
-    <div class="step">ÉTAPE 4 SUR 4</div>
-    <div class="progress">
-        <div class="progress-bar">95%</div>
+
+    <div class="step">
+        ÉTAPE 4 SUR 4
     </div>
+
+    <div class="progress">
+        <div class="progress-bar">
+            95%
+        </div>
+    </div>
+
     <div class="warning">
         ⚠ Pour accéder à l’application et vérifier votre accès, regardez la vidéo ci-dessous.
     </div>
     
     <!-- VIDÉO -->
 
-<vturb-smartplayer id="vid-6aa40ebfc54492aa953e8075" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6aa40ebfc54492aa953e8075/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+    <vturb-smartplayer
+        id="vid-6aa40ebfc54492aa953e8075"
+        style="display: block; margin: 0 auto; width: 100%;">
 
+        <div
+            class="vturb-player-placeholder"
+            style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;">
+        </div>
 
-    
+    </vturb-smartplayer>
+
+    <script type="text/javascript">
+
+        var s = document.createElement("script");
+
+        s.src = "https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6aa40ebfc54492aa953e8075/v4/player.js";
+
+        s.async = true;
+
+        document.head.appendChild(s);
+
+    </script>
+
     <br><br>
 
-    <!-- BOUTONS -->
+    <!-- BOUTÕES -->
+
     <div class="decision-container">
-        <digistore-upsell-button template="light"></digistore-upsell-button>
-        
+
+        <!-- BOTÃO ACEITAR -->
+        <a
+            href="https://www.checkout-ds24.com/answer/yes?template=light"
+            class="btn-yes"
+            id="esconder">
+
+            ACESSER AVEC RÉDUCTION MAINTENANT
+
+        </a>
+
+        <!-- BOTÃO RECUSAR -->
+        <a
+            href="https://www.checkout-ds24.com/answer/no"
+            class="btn-no"
+            id="esconder">
+
+            Non, merci.
+
+        </a>
+
     </div>
 
-    <!-- TEXTE DE LA PRIÈRE AVEC ID ESCONDER -->
-    <div id="esconder">
-        <div id="esconder-texto">
-            <h2>La Prière Miraculeuse de Saint Michel Archange</h2>
-            <p>Depuis des siècles, la Prière de Saint Michel Archange est un bouclier divin contre les ténèbres. Pour une durée limitée, vous pouvez maintenant débloquer toute sa puissance pour guérir les maladies physiques, émotionnelles et spirituelles que la médecine moderne ne peut pas toucher.</p>
-            <p>Ce n’est pas simplement une prière – c’est une arme sacrée. D’innombrables croyants ont connu une protection immédiate, une délivrance contre les attaques du mal et la rupture des malédictions générationnelles. Que vous soyez confronté à l’anxiété, à une fatigue inexplicable ou à une oppression spirituelle, l’intercession de Saint Michel apporte directement dans votre vie une défense céleste.</p>
-            <p>Imaginez-vous réveiller demain en vous sentant complètement renouvelé – libéré du poids qui écrase votre esprit. Cette prière a le pouvoir de chasser les influences démoniaques, de protéger votre foyer et de restaurer la paix dans votre cœur. L’Archange est prêt à combattre pour vous.</p>
-            <p>En profitant de cette offre aujourd’hui pour seulement <strong>69 $</strong>, vous recevez la prière guidée complète ainsi que le protocole de protection. Ne laissez pas passer une nuit de plus sous les attaques. Votre délivrance n’est qu’à une prière.</p>
-        </div>
+
     </div>
 
     <!-- BOUTON FINAL -->
+
     <div class="decision-container" style="margin-top: 40px;">
-        <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn-yes" id="esconder">
-            ACCÉDER À L’APPLICATION MAINTENANT
-        </a>
+
+     
+
     </div>
 
     <div style="height: 300px; width: 100%; background: #ffffff;"></div>
 
     <script>
+
         const link = 'https://www.checkout-ds24.com/answer/yes?template=light';
+
         function setBackRedirect(url) {
+
             let urlBackRedirect = url;
+
             urlBackRedirect = urlBackRedirect.trim() +
                 (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
                 document.location.search.replace('?', '').toString();
+
             history.pushState({}, '', location.href);
             history.pushState({}, '', location.href);
             history.pushState({}, '', location.href);
+
             window.addEventListener('popstate', () => {
+
                 setTimeout(() => {
+
                     location.href = urlBackRedirect;
+
                 }, 1);
+
             });
         }
+
         setBackRedirect(link);
+
     </script>
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+
+    <script
+        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+        data-utmify-prevent-xcod-sck
+        data-utmify-prevent-subids
+        async
+        defer>
+    </script>
     
     <div class="sticky-warning-bar">
         ⚠️ Il est obligatoire de regarder la vidéo jusqu’à la fin afin d’éviter les erreurs.
     </div>
+
 </body>
 </html>
