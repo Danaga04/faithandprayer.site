@@ -1,183 +1,218 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+ 
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script><script>digistoreUpsell()</script>
+
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalisez votre commande</title>
-
-    <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
-    <script>digistoreUpsell()</script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <title>achat en cours de vérification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
-            line-height: 1.6;
             margin: 0;
             padding: 0;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-        }
-
-        h1 {
+            padding-bottom: 150px;
+            font-family: "Poppins", sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.5;
             text-align: center;
-            font-weight: 700;
-            font-size: 24px;
-            margin-bottom: 10px;
         }
-
-        h2 {
-            text-align: center;
+        .step {
             font-size: 18px;
-            margin-bottom: 20px;
-            color: #333;
+            font-weight: 700;
+            margin: 25px 0 10px;
         }
-
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-            padding-left: 1.2em;
+        .progress {
+            width: 90%;
+            margin: 0 auto;
+            height: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            background: #ddd;
             position: relative;
         }
-
-        ul li::before {
-            content: '•';
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #16a34a, #0d6b3a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            animation: loadProgress 2.8s ease-in-out forwards;
+            position: relative;
+        }
+        .progress-bar::after {
+            content: '';
             position: absolute;
-            left: 0;
-            color: #007bff;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+            animation: shimmer 1.8s infinite;
         }
-
-        .price-box {
-            text-align: center;
-            background-color: #f8f8f8;
-            padding: 15px;
-            margin: 20px 0;
-            border: 1px dashed #ccc;
+        .warning {
+            font-size: 15px;
+            margin: 15px 0;
+            color: #d80000;
         }
-
-        .price-box strong {
-            font-size: 28px;
-            color: #0056b3;
-        }
-
-        .btn {
+        vturb-smartplayer {
             display: block;
             width: 100%;
-            padding: 15px;
-            text-align: center;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-bottom: 10px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .decision-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
             box-sizing: border-box;
         }
-
-        .accept {
-            background-color: #28a745;
-            color: white;
+        .btn-yes {
+            width: 100%;
+            background: #25D366;
+            color: #fff;
+            padding: 18px 20px;
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 8px;
+            text-decoration: none;
+            box-sizing: border-box;
+            animation: pulse-green 1.5s infinite;
+            display: inline-block;
         }
-
-        .decline {
-            background-color: #dc3545;
-            color: white;
-            font-size: 14px;
+        .btn-no {
+            color: #d80000;
+            font-size: 17px;
+            font-weight: 700;
+            text-decoration: underline;
+            cursor: pointer;
         }
-
-        .small {
-            font-size: 13px;
+        #esconder-texto {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: left;
+            font-size: 17px;
+            line-height: 1.6;
+            color: #000;
+        }
+        #esconder-texto h2 {
             text-align: center;
-            color: #777;
-            margin-top: 15px;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+        @keyframes loadProgress {
+            from { width: 0%; }
+            to { width: 95%; }
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(400%); }
+        }
+        .sticky-warning-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffcc00;
+            color: #000000;
+            text-align: center;
+            padding: 12px 10px;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            z-index: 9999;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 480px) {
+            .btn-yes { font-size: 18px; padding: 16px; }
+            .btn-no { font-size: 15px; }
         }
     </style>
 </head>
-
 <body>
+    <div class="step">ÉTAPE 4 SUR 4</div>
+    <div class="progress">
+        <div class="progress-bar">95%</div>
+    </div>
+    <div class="warning">
+        ⚠ Pour accéder à l’application et vérifier votre accès, regardez la vidéo ci-dessous.
+    </div>
+    
+    <!-- VIDÉO -->
 
-<div class="container">
+<vturb-smartplayer id="vid-6aa40ebfc54492aa953e8075" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6aa40ebfc54492aa953e8075/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 
-    <h1>Offre supplémentaire</h1>
 
-    <h2>Approfondissez votre pratique avec le pack complet de séances guidées</h2>
+    
+    <br><br>
 
-    <p>
-        Votre achat initial comprend l'expérience Sacred Chant principale. Cette mise à niveau optionnelle est conçue pour ceux qui souhaitent aller au-delà du programme principal et créer une routine quotidienne plus complète.
-    </p>
-
-    <p>
-        Au lieu d'une seule séance, ce pack vous offre une collection structurée de contenus guidés que vous pouvez utiliser à différents moments de votre journée.
-    </p>
-
-    <p><strong>Ce qui est inclus :</strong></p>
-
-    <ul>
-        <li>7 séances audio guidées – chacune avec un objectif différent (calme, conscience, présence, réflexion)</li>
-        <li>Progression structurée – suivez une routine simple sur plusieurs jours</li>
-        <li>Variété de pratiques – alternez les séances selon votre humeur ou votre emploi du temps</li>
-        <li>Expérience enrichie – apporte davantage de profondeur et de flexibilité au programme principal</li>
-    </ul>
-
-    <p>
-        Ce pack est idéal si vous souhaitez une expérience plus large et plus flexible, avec plusieurs séances pour favoriser la régularité au fil du temps.
-    </p>
-
-    <div class="price-box">
-        <p>Offre unique :</p>
-        <strong>39 €</strong>
+    <!-- BOUTONS -->
+    <div class="decision-container">
+        <digistore-upsell-button template="light"></digistore-upsell-button>
+        
     </div>
 
-    <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn accept">
-        Ajouter à ma commande – 39 €
-    </a>
+    <!-- TEXTE DE LA PRIÈRE AVEC ID ESCONDER -->
+    <div id="esconder">
+        <div id="esconder-texto">
+            <h2>La Prière Miraculeuse de Saint Michel Archange</h2>
+            <p>Depuis des siècles, la Prière de Saint Michel Archange est un bouclier divin contre les ténèbres. Pour une durée limitée, vous pouvez maintenant débloquer toute sa puissance pour guérir les maladies physiques, émotionnelles et spirituelles que la médecine moderne ne peut pas toucher.</p>
+            <p>Ce n’est pas simplement une prière – c’est une arme sacrée. D’innombrables croyants ont connu une protection immédiate, une délivrance contre les attaques du mal et la rupture des malédictions générationnelles. Que vous soyez confronté à l’anxiété, à une fatigue inexplicable ou à une oppression spirituelle, l’intercession de Saint Michel apporte directement dans votre vie une défense céleste.</p>
+            <p>Imaginez-vous réveiller demain en vous sentant complètement renouvelé – libéré du poids qui écrase votre esprit. Cette prière a le pouvoir de chasser les influences démoniaques, de protéger votre foyer et de restaurer la paix dans votre cœur. L’Archange est prêt à combattre pour vous.</p>
+            <p>En profitant de cette offre aujourd’hui pour seulement <strong>69 $</strong>, vous recevez la prière guidée complète ainsi que le protocole de protection. Ne laissez pas passer une nuit de plus sous les attaques. Votre délivrance n’est qu’à une prière.</p>
+        </div>
+    </div>
 
-    <a href="https://www.checkout-ds24.com/answer/no" class="btn decline">
-        Non merci
-    </a>
+    <!-- BOUTON FINAL -->
+    <div class="decision-container" style="margin-top: 40px;">
+        <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn-yes" id="esconder">
+            ACCÉDER À L’APPLICATION MAINTENANT
+        </a>
+    </div>
 
-    <p class="small">
-        Ce contenu est éducatif et destiné au développement personnel et à la pratique de la pleine conscience. Il ne garantit aucun résultat spécifique.
-    </p>
+    <div style="height: 300px; width: 100%; background: #ffffff;"></div>
 
-    <p class="small" style="font-weight:600;">
-        Garantie satisfait ou remboursé de 60 jours
-    </p>
-
-    <p class="small">
-        Vous pouvez essayer le programme pendant 60 jours. Si vous n'êtes pas satisfait, vous pouvez demander un remboursement intégral en contactant le support.
-    </p>
-
-    <p class="small">
-        Il s'agit d'un produit numérique. Aucun produit physique ne sera expédié. L'accès est fourni en ligne après l'achat.
-    </p>
-
-</div>
-
-<footer style="text-align:center; font-size:13px; margin-top:30px; color:#777;">
-    <a href="https://sacredchantguide.site/privacy-policy/">Politique de confidentialité</a> |
-    <a href="https://sacredchantguide.site/terms/">Conditions d'utilisation</a> |
-    <a href="https://sacredchantguide.site/contact/">Contact</a>
-</footer>
-
-<script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
-<script> new OcuExternal(); </script>
-
+    <script>
+        const link = 'https://www.checkout-ds24.com/answer/yes?template=light';
+        function setBackRedirect(url) {
+            let urlBackRedirect = url;
+            urlBackRedirect = urlBackRedirect.trim() +
+                (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+                document.location.search.replace('?', '').toString();
+            history.pushState({}, '', location.href);
+            history.pushState({}, '', location.href);
+            history.pushState({}, '', location.href);
+            window.addEventListener('popstate', () => {
+                setTimeout(() => {
+                    location.href = urlBackRedirect;
+                }, 1);
+            });
+        }
+        setBackRedirect(link);
+    </script>
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
+    
+    <div class="sticky-warning-bar">
+        ⚠️ Il est obligatoire de regarder la vidéo jusqu’à la fin afin d’éviter les erreurs.
+    </div>
 </body>
 </html>
