@@ -1,215 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
- 
-
-<script src="https://pay.alphamanguide.site/scripts/upsell-processor.js"></script>
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>purchase under review</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Finalisez votre commande</title>
+
+    <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+    <script>digistoreUpsell()</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            padding-bottom: 150px;
-            font-family: "Poppins", sans-serif;
-            background: #ffffff;
-            color: #000000;
-            line-height: 1.5;
-            text-align: center;
         }
-        .step {
-            font-size: 18px;
-            font-weight: 700;
-            margin: 25px 0 10px;
-        }
-        .progress {
-            width: 90%;
-            margin: 0 auto;
-            height: 30px;
-            border-radius: 5px;
-            overflow: hidden;
-            background: #ddd;
-            position: relative;
-        }
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, #16a34a, #0d6b3a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            animation: loadProgress 2.8s ease-in-out forwards;
-            position: relative;
-        }
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
-            animation: shimmer 1.8s infinite;
-        }
-        .warning {
-            font-size: 15px;
-            margin: 15px 0;
-            color: #d80000;
-        }
-        vturb-smartplayer {
-            display: block;
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto;
-        }
-        .decision-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            width: 100%;
-            max-width: 500px;
+
+        .container {
+            max-width: 600px;
             margin: 30px auto;
             padding: 20px;
-            box-sizing: border-box;
-        }
-        .btn-yes {
-            width: 100%;
-            background: #25D366;
-            color: #fff;
-            padding: 18px 20px;
-            font-size: 22px;
-            font-weight: 800;
-            text-transform: uppercase;
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
-            text-decoration: none;
-            box-sizing: border-box;
-            animation: pulse-green 1.5s infinite;
-            display: inline-block;
         }
-        .btn-no {
-            color: #d80000;
-            font-size: 17px;
+
+        h1 {
+            text-align: center;
             font-weight: 700;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        #esconder-texto {
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: left;
-            font-size: 17px;
-            line-height: 1.6;
-            color: #000;
-        }
-        #esconder-texto h2 {
-            text-align: center;
-            margin-bottom: 20px;
             font-size: 24px;
+            margin-bottom: 10px;
         }
-        @keyframes pulse-green {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.04); }
-            100% { transform: scale(1); }
-        }
-        @keyframes loadProgress {
-            from { width: 0%; }
-            to { width: 95%; }
-        }
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(400%); }
-        }
-        .sticky-warning-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #ffcc00;
-            color: #000000;
+
+        h2 {
             text-align: center;
-            padding: 12px 10px;
-            font-size: 14px;
-            font-weight: 800;
-            text-transform: uppercase;
-            z-index: 9999;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
         }
-        @media (max-width: 480px) {
-            .btn-yes { font-size: 18px; padding: 16px; }
-            .btn-no { font-size: 15px; }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 1.2em;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #007bff;
+        }
+
+        .price-box {
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px dashed #ccc;
+        }
+
+        .price-box strong {
+            font-size: 28px;
+            color: #0056b3;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .accept {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .decline {
+            background-color: #dc3545;
+            color: white;
+            font-size: 14px;
+        }
+
+        .small {
+            font-size: 13px;
+            text-align: center;
+            color: #777;
+            margin-top: 15px;
         }
     </style>
 </head>
+
 <body>
-    <div class="step">STEP 4 OF 4</div>
-    <div class="progress">
-        <div class="progress-bar">95%</div>
-    </div>
-    <div class="warning">
-        ⚠ To access the app and verify your access, watch the video below.
-    </div>
-    
-    <!-- VÍDEO -->
-   <vturb-smartplayer id="vid-6a6cd694b6e0b7d03f66dcfe" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6a6cd694b6e0b7d03f66dcfe/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
- 
-    <br><br>
 
-    <!-- BOTÕES -->
-    <div class="decision-container">
-     
+<div class="container">
 
-<button type="button" onclick="acceptUpsell('https://pay.alphamanguide.site/u/f2a0df8e1fe9d9e4')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;">CLICK HERE TO ACCESS WITH A DISCOUNT</button>
+    <h1>Offre supplémentaire</h1>
 
-     
-     
-        
-    </div>
+    <h2>Approfondissez votre pratique avec le pack complet de séances guidées</h2>
 
-    <!-- TEXTO DA ORAÇÃO COM ID ESCONDER -->
-    <div id="esconder">
-        <div id="esconder-texto">
-            <h2>The Miraculous Prayer of Saint Michael the Archangel</h2>
-            <p>For centuries, the Prayer of Saint Michael the Archangel has been a divine shield against darkness. Now, for a limited time, you can unlock its full power to heal physical, emotional, and spiritual diseases that modern medicine cannot touch.</p>
-            <p>This is not just a prayer – it is a sacred weapon. Countless believers have experienced immediate protection, deliverance from evil attacks, and the breaking of generational curses. Whether you face anxiety, unexplainable fatigue, or spiritual oppression, Saint Michael’s intercession brings heavenly defense directly into your life.</p>
-            <p>Imagine waking up tomorrow feeling completely renewed – free from the weight that has been crushing your spirit. This prayer has the authority to cast out demonic influences, shield your home, and restore peace to your heart. The Archangel stands ready to fight for you.</p>
-            <p>By claiming this offer today for just <strong>$69</strong>, you receive the complete guided prayer and protection protocol. Do not let another night pass under attack. Your breakthrough is one prayer away.</p>
-        </div>
+    <p>
+        Votre achat initial comprend l'expérience Sacred Chant principale. Cette mise à niveau optionnelle est conçue pour ceux qui souhaitent aller au-delà du programme principal et créer une routine quotidienne plus complète.
+    </p>
+
+    <p>
+        Au lieu d'une seule séance, ce pack vous offre une collection structurée de contenus guidés que vous pouvez utiliser à différents moments de votre journée.
+    </p>
+
+    <p><strong>Ce qui est inclus :</strong></p>
+
+    <ul>
+        <li>7 séances audio guidées – chacune avec un objectif différent (calme, conscience, présence, réflexion)</li>
+        <li>Progression structurée – suivez une routine simple sur plusieurs jours</li>
+        <li>Variété de pratiques – alternez les séances selon votre humeur ou votre emploi du temps</li>
+        <li>Expérience enrichie – apporte davantage de profondeur et de flexibilité au programme principal</li>
+    </ul>
+
+    <p>
+        Ce pack est idéal si vous souhaitez une expérience plus large et plus flexible, avec plusieurs séances pour favoriser la régularité au fil du temps.
+    </p>
+
+    <div class="price-box">
+        <p>Offre unique :</p>
+        <strong>39 €</strong>
     </div>
 
-   
+    <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn accept">
+        Ajouter à ma commande – 39 €
+    </a>
 
-    <div style="height: 300px; width: 100%; background: #ffffff;"></div>
+    <a href="https://www.checkout-ds24.com/answer/no" class="btn decline">
+        Non merci
+    </a>
 
-    <script>
-        const link = '';
-        function setBackRedirect(url) {
-            let urlBackRedirect = url;
-            urlBackRedirect = urlBackRedirect.trim() +
-                (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-                document.location.search.replace('?', '').toString();
-            history.pushState({}, '', location.href);
-            history.pushState({}, '', location.href);
-            history.pushState({}, '', location.href);
-            window.addEventListener('popstate', () => {
-                setTimeout(() => {
-                    location.href = urlBackRedirect;
-                }, 1);
-            });
-        }
-        setBackRedirect(link);
-    </script>
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
-    
-    <div class="sticky-warning-bar">
-        ⚠️ It is mandatory to watch the video until the end to avoid errors.
-    </div>
+    <p class="small">
+        Ce contenu est éducatif et destiné au développement personnel et à la pratique de la pleine conscience. Il ne garantit aucun résultat spécifique.
+    </p>
+
+    <p class="small" style="font-weight:600;">
+        Garantie satisfait ou remboursé de 60 jours
+    </p>
+
+    <p class="small">
+        Vous pouvez essayer le programme pendant 60 jours. Si vous n'êtes pas satisfait, vous pouvez demander un remboursement intégral en contactant le support.
+    </p>
+
+    <p class="small">
+        Il s'agit d'un produit numérique. Aucun produit physique ne sera expédié. L'accès est fourni en ligne après l'achat.
+    </p>
+
+</div>
+
+<footer style="text-align:center; font-size:13px; margin-top:30px; color:#777;">
+    <a href="https://sacredchantguide.site/privacy-policy/">Politique de confidentialité</a> |
+    <a href="https://sacredchantguide.site/terms/">Conditions d'utilisation</a> |
+    <a href="https://sacredchantguide.site/contact/">Contact</a>
+</footer>
+
+<script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+<script> new OcuExternal(); </script>
+
 </body>
 </html>
