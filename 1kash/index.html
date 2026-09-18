@@ -1,295 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<html lang="fr">
 <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<title>Upsell — Routine Quotidienne de Concentration</title>
 
-<script src="https://pay.alphamanguide.site/scripts/upsell-processor.js"></script>
-    
-   
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>purchase under review</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            padding-bottom: 120px;
-            font-family: "Poppins", sans-serif;
-            background: #000;
-            color: #fff;
-            line-height: 1.4;
-            text-align: center;
-        }
-        /* HEADER */
-        .header {
-            background: linear-gradient(90deg, #d80000, #7a0000);
-            padding: 20px 10px;
-        }
-        .title-tag {
-            background: #fff;
-            color: #d80000;
-            font-weight: 800;
-            font-size: 22px;
-            padding: 5px 10px;
-            display: inline-block;
-        }
-        /* EMAIL */
-        .header-msg {
-            margin-top: 15px;
-            font-size: 15px;
-            font-weight: 500;
-        }
-        .email-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 5px;
-            flex-wrap: wrap;
-        }
-        .email-text {
-            font-weight: 700;
-            text-decoration: underline;
-        }
-        .copy-btn {
-            background: #fff;
-            color: #d80000;
-            border: none;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 12px;
-            cursor: pointer;
-        }
-        .copy-btn:active {
-            transform: scale(0.95);
-        }
-        /* PROGRESS */
-        .step {
-            font-size: 18px;
-            font-weight: 700;
-            margin: 20px 0 10px;
-        }
-        .progress {
-            width: 90%;
-            margin: 0 auto;
-            height: 30px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        .progress-bar {
-            width: 75%;
-            height: 100%;
-            background: linear-gradient(90deg, #16a34a, #0d6b3a);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-        }
-        /* WARNING */
-        .warning {
-            font-size: 14px;
-            margin: 10px 0;
-        }
-        .warning span {
-            color: #ffcc00;
-            font-size: 18px;
-        }
-        /* PLAYER */
-        vturb-smartplayer {
-            display: block;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        /* BUTTONS */
-        .decision-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .btn-yes {
-            width: 100%;
-            background: #25D366;
-            color: #fff;
-            padding: 18px 20px;
-            font-size: 22px;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 8px;
-            text-decoration: none;
-            box-sizing: border-box;
-            animation: pulse-green 1.5s infinite;
-            display: inline-block;
-        }
-        .btn-no {
-            color: #ffffff;
-            font-size: 18px;
-            font-weight: 700;
-            text-decoration: underline;
-        }
-        /* ANIMAÇÃO */
-        @keyframes pulse-green {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.04); }
-            100% { transform: scale(1); }
-        }
-        /* STICKY FOOTER WARNING */
-        .sticky-warning-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #ffcc00;
-            color: #000000;
-            text-align: center;
-            padding: 12px 10px;
-            font-size: 14px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 9999;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-            box-sizing: border-box;
-        }
+<!-- DIGISTORE24 UPSELL -->
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script>digistoreUpsell()</script>
 
-        /* COUNTDOWN */
-        .countdown-box {
-            margin: 25px auto 10px;
-            max-width: 500px;
-            padding: 0 15px;
-        }
-        .countdown-text {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ff3333;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .countdown-timer {
-            font-size: 42px;
-            font-weight: 800;
-            color: #ff0000;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-        }
+<style>
+  :root {
+    --bg: #f7fbf7;
+    --card: #ffffff;
+    --accent: #2f855a;
+    --muted: #6b7280;
+    --danger: #b91c1c;
+  }
 
-        /* IMAGEM */
-        .upsell-image {
-            display: block;
-            max-width: 100%;
-            width: 100%;
-            max-width: 500px;
-            margin: 20px auto;
-            border-radius: 8px;
-        }
+  html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    background: var(--bg);
+    color: #111;
+  }
 
-        /* MOBILE */
-        @media (max-width: 480px) {
-            .btn-yes {
-                font-size: 18px;
-                padding: 15px;
-            }
-            .btn-no {
-                font-size: 15px;
-            }
-            .title-tag {
-                font-size: 18px;
-            }
-            .header-msg {
-                font-size: 14px;
-            }
-            .sticky-warning-bar {
-                font-size: 12px;
-                padding: 10px 5px;
-            }
-            .countdown-timer {
-                font-size: 36px;
-            }
-            .countdown-text {
-                font-size: 14px;
-            }
-        }
-    </style>
+  .container {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 720px;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(16, 24, 40, 0.1);
+    padding: 40px 32px;
+    text-align: center;
+  }
+
+  .alert {
+    background: var(--danger);
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .eyebrow {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .price {
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  ul {
+    text-align: left;
+    max-width: 520px;
+    margin: 20px auto;
+    color: var(--muted);
+  }
+
+  .btn {
+    display: block;
+    padding: 16px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+
+  .accept {
+    background: #28a745;
+    color: white;
+  }
+
+  /* BOTÃO DE RECUSA MAIS VISÍVEL */
+  .decline {
+    display: block;
+    background: #dc2626;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin: 14px auto 0;
+    max-width: 300px;
+    box-sizing: border-box;
+  }
+
+  .decline:hover {
+    background: #b91c1c;
+  }
+</style>
 </head>
+
 <body>
-    <div class="header">
-        <span class="title-tag">CONGRATULATIONS! BUT...</span>
-        <div class="header-msg">
-            WATCH THE VIDEO BELOW SO YOU DON'T MISS IT—THAT'S WHERE I REVEAL THE PRAYER:
-        </div>
-    </div>
-    <div class="step">STEP 3 OF 4</div>
-    <div class="progress">
-        <div class="progress-bar">75%</div>
-    </div>
-    <div class="warning">
-        <span>⚠</span> Watch the video below 👇 Do not click “Back” or leave this page before watching...
-    </div>
-    <vturb-smartplayer id="vid-6a665ea93eea6cc7eb4aa313" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6a665ea93eea6cc7eb4aa313/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6a665ea93eea6cc7eb4aa313/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/6a665e0ac6b7a3061d970a62/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://license.vturb.com">
-   
-   
-   
-   
-    <br>
 
-    <div class="decision-container">
-        
+<div class="container">
+<div class="card">
 
-<button type="button" onclick="acceptUpsell('https://pay.alphamanguide.site/u/92605c6bd8c30078')" style="font-family: 'Poppins'; font-size: 18px; font-weight: 600; line-height: 1.3; color: #ffffff; background-color: #057932; border: none; border-radius: 10px; padding: 13px 7%; cursor: pointer; text-align: center; display: block; margin: auto;">ACCESS THE APP NOW</button>
-        
-           
-    </div>
+<div class="alert">⚠️ NE FERMEZ PAS CETTE PAGE</div>
 
-    <!-- COUNTDOWN VERMELHO (abaixo dos botões) -->
-    <div class="countdown-box" id="esconder">
-        <div class="countdown-text">Click the green button before time runs out</div>
-        <div class="countdown-timer" id="countdown">10:00</div>
-    </div>
+<div class="eyebrow">Offre optionnelle</div>
 
-  
-    <!-- Grande margem no final da página -->
-    <div style="height: 150px; width: 100%;"></div>
-    <script>
-        
+<h1>Routine guidée quotidienne de <span style="color:#2f855a;">concentration & respiration</span></h1>
 
-        // COUNTDOWN 10 MINUTOS
-        let totalSeconds = 10 * 60;
-        const countdownEl = document.getElementById('countdown');
+<div class="price">Seulement 39 €</div>
 
-        const timer = setInterval(() => {
-            totalSeconds--;
-            if (totalSeconds < 0) {
-                clearInterval(timer);
-                countdownEl.textContent = "00:00";
-                return;
-            }
-            const minutes = Math.floor(totalSeconds / 60);
-            const seconds = totalSeconds % 60;
-            countdownEl.textContent = 
-                String(minutes).padStart(2, '0') + ':' + 
-                String(seconds).padStart(2, '0');
-        }, 1000);
-    </script>
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
-    <div class="sticky-warning-bar">
-        ⚠️ It is mandatory to watch the video until the end to avoid errors.
-    </div>
+<p>
+Cette offre complémentaire comprend une routine guidée conçue pour vous aider à créer des moments de pause, de respiration consciente et de concentration tout au long de votre journée.
+</p>
+
+<p>
+Il s'agit d'une pratique simple que vous pouvez suivre chez vous, créée pour compléter votre expérience avec le programme principal.
+</p>
+
+<ul>
+<li>✔️ Exercices guidés de respiration et de relaxation</li>
+<li>✔️ Routine quotidienne simple pour favoriser la régularité</li>
+<li>✔️ Approche basée sur la pleine conscience pour la concentration et la prise de conscience</li>
+</ul>
+
+<a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn accept">
+AJOUTER À MA COMMANDE POUR 39 €
+</a>
+
+<a href="https://www.checkout-ds24.com/answer/no" class="decline">
+NON MERCI, JE PRÉFÈRE NE PAS AJOUTER CETTE OFFRE
+</a>
+
+<p style="font-size:12px; margin-top:15px;">
+Ce contenu est éducatif et destiné au développement personnel et à la pratique de la pleine conscience. Aucun résultat spécifique n'est garanti.
+</p>
+
+<p style="font-size:16px; font-weight:600;">
+Garantie satisfait ou remboursé de 60 jours
+</p>
+
+<p>
+Vous pouvez essayer le programme pendant 60 jours. Si vous n'êtes pas satisfait, vous pouvez demander un remboursement intégral en contactant le support.
+</p>
+
+<p style="font-size:12px; color:#777;">
+Il s'agit d'un produit numérique. Aucun produit physique ne sera expédié. L'accès est fourni en ligne après l'achat.
+</p>
+
+<footer style="text-align:center; font-size:13px; margin-top:30px; color:#777;">
+<a href="https://sacredchantguide.site/privacy-policy/">Politique de confidentialité</a> |
+<a href="https://sacredchantguide.site/terms/">Conditions d'utilisation</a> |
+<a href="https://sacredchantguide.site/contact/">Contact</a>
+</footer>
+
+</div>
+</div>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"18555a854b794002a95dbeedc0642fb5","r":1,"spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
