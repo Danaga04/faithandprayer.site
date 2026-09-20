@@ -2,8 +2,7 @@
 <html lang="fr">
 <head>
  
-<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
-<script>digistoreUpsell()</script>
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script><script>digistoreUpsell()</script>
 
     
 <meta charset="UTF-8">
@@ -250,25 +249,7 @@
 
     <div class="decision-container">
 
-        <!-- BOTÃO ACEITAR -->
-        <a
-            href="https://www.checkout-ds24.com/answer/yes?template=light"
-            class="btn-yes"
-            id="esconder">
-
-            ACESSER AVEC RÉDUCTION MAINTENANT
-
-        </a>
-
-        <!-- BOTÃO RECUSAR -->
-        <a
-            href="https://www.checkout-ds24.com/answer/no"
-            class="btn-no"
-            id="esconder">
-
-            Non, merci.
-
-        </a>
+        <digistore-upsell-button template="light"></digistore-upsell-button>
 
     </div>
 
@@ -285,36 +266,7 @@
 
     <div style="height: 300px; width: 100%; background: #ffffff;"></div>
 
-    <script>
-
-        const link = 'https://www.checkout-ds24.com/answer/yes?template=light';
-
-        function setBackRedirect(url) {
-
-            let urlBackRedirect = url;
-
-            urlBackRedirect = urlBackRedirect.trim() +
-                (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-                document.location.search.replace('?', '').toString();
-
-            history.pushState({}, '', location.href);
-            history.pushState({}, '', location.href);
-            history.pushState({}, '', location.href);
-
-            window.addEventListener('popstate', () => {
-
-                setTimeout(() => {
-
-                    location.href = urlBackRedirect;
-
-                }, 1);
-
-            });
-        }
-
-        setBackRedirect(link);
-
-    </script>
+   
 
     <script
         src="https://cdn.utmify.com.br/scripts/utms/latest.js"
