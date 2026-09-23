@@ -2,13 +2,15 @@
 <html lang="fr">
 <head>
 
-<script src="https://www.digistore24-scripts.com/service/digistore.js"></script><script>digistoreUpsell()</script>
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script>digistoreUpsell()</script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dernière étape</title>
 
 <style>
+
 *{
     box-sizing:border-box;
 }
@@ -96,6 +98,7 @@ img{
 }
 
 /* BOTÕES */
+
 .decision-container{
     display:flex;
     flex-direction:column;
@@ -109,10 +112,11 @@ img{
 }
 
 /* BOTÃO ACEITAR */
+
 .btn-yes{
     display:block;
     width:100%;
-    background-color:#25D366;
+    background:linear-gradient(180deg,#32e875 0%,#16b957 100%);
     color:#ffffff;
     text-align:center;
     padding:22px 20px;
@@ -120,17 +124,29 @@ img{
     font-weight:800;
     text-transform:uppercase;
     text-decoration:none;
-    border-radius:8px;
-    box-shadow:0 4px 15px rgba(37,211,102,0.4);
-    animation:pulse-green 1.5s infinite;
-    transition:transform 0.2s ease, background-color 0.2s ease;
+    border-radius:10px;
+
+    box-shadow:
+        0 5px 20px rgba(37,211,102,0.45),
+        0 0 30px rgba(37,211,102,0.20);
+
+    animation:pulse-green 1.4s infinite;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
 }
 
 .btn-yes:hover{
-    background-color:#1ebc59;
+    background:linear-gradient(180deg,#42f583 0%,#16a84d 100%);
+}
+
+.btn-yes:active{
+    transform:scale(0.97);
 }
 
 /* BOTÃO RECUSAR */
+
 .btn-no{
     color:#6c757d;
     font-size:15px;
@@ -149,21 +165,31 @@ img{
     text-align:center;
 }
 
+/* ANIMAÇÃO */
+
 @keyframes pulse-green{
+
     0%{
         transform:scale(1);
-        box-shadow:0 0 0 0 rgba(37,211,102,0.7);
+        box-shadow:
+            0 5px 20px rgba(37,211,102,0.45),
+            0 0 30px rgba(37,211,102,0.20);
     }
 
     50%{
-        transform:scale(1.04);
-        box-shadow:0 0 0 12px rgba(37,211,102,0);
+        transform:scale(1.045);
+        box-shadow:
+            0 7px 28px rgba(37,211,102,0.65),
+            0 0 45px rgba(37,211,102,0.35);
     }
 
     100%{
         transform:scale(1);
-        box-shadow:0 0 0 0 rgba(37,211,102,0);
+        box-shadow:
+            0 5px 20px rgba(37,211,102,0.45),
+            0 0 30px rgba(37,211,102,0.20);
     }
+
 }
 
 @media (max-width:600px){
@@ -193,7 +219,9 @@ img{
     .btn-no{
         font-size:15px;
     }
+
 }
+
 </style>
 
 </head>
@@ -236,12 +264,25 @@ img{
     </script>
 
 
-    <!-- BOTÕES NO LUGAR DO DIGISTORE UPSELL BUTTON -->
+    <!-- BOTÕES -->
 
     <div class="decision-container">
 
         <!-- BOTÃO ACEITAR -->
-        <digistore-upsell-button id="esconder" template="light"></digistore-upsell-button>
+
+        <a
+            href="https://www.checkout-ds24.com/answer/yes?template=light"
+            class="btn-yes">
+            ✓ ACCÉDER MAINTENANT POUR +89 €
+        </a>
+
+        <!-- BOTÃO RECUSAR -->
+
+        <a
+            href="https://www.checkout-ds24.com/answer/no"
+            class="btn-no">
+            Non merci, je préfère continuer sans cette offre
+        </a>
 
     </div>
 
@@ -307,33 +348,33 @@ img{
 
 <script>
 
-    (function() {
+(function() {
 
-        const observer = new MutationObserver((mutations) => {
+    const observer = new MutationObserver((mutations) => {
 
-            for (const mutation of mutations) {
+        for (const mutation of mutations) {
 
-                const confirmBtn =
-                    document.getElementById('kiwify-upsell-modal-charge');
+            const confirmBtn =
+                document.getElementById('kiwify-upsell-modal-charge');
 
-                if (confirmBtn) {
+            if (confirmBtn) {
 
-                    confirmBtn.click();
+                confirmBtn.click();
 
-                    break;
-
-                }
+                break;
 
             }
 
-        });
+        }
 
-        observer.observe(document.body, {
-            childList:true,
-            subtree:true
-        });
+    });
 
-    })();
+    observer.observe(document.body, {
+        childList:true,
+        subtree:true
+    });
+
+})();
 
 </script>
 
@@ -348,9 +389,6 @@ img{
 
 
 <script>
-
-    // MODIFIEZ LE LIEN VERS LA PAGE QUE VOUS SOUHAITEZ AFFICHER
-    // LORSQUE L’UTILISATEUR TENTE DE QUITTER
 
     const link =
         'https://www.checkout-ds24.com/answer/yes?template=light';
