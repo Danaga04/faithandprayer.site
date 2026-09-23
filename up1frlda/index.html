@@ -2,9 +2,8 @@
 <html lang="fr">
 <head>
 
-
-<script src="https://www.digistore24-scripts.com/service/digistore.js"></script><script>digistoreUpsell()</script>
-
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
+<script>digistoreUpsell()</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
     body {
         margin: 0;
         padding: 0;
@@ -119,7 +119,7 @@
         margin: 0 auto;
     }
 
-    /* BUTTONS */
+    /* BOTÕES */
     .decision-container {
         display: flex;
         flex-direction: column;
@@ -132,47 +132,77 @@
         box-sizing: border-box;
     }
 
+    /* BOTÃO ACEITAR */
     .btn-yes {
         width: 100%;
-        background: #25D366;
+        background: linear-gradient(180deg, #32e875 0%, #18b957 100%);
         color: #fff;
-        padding: 18px 20px;
-        font-size: 22px;
+        padding: 20px 20px;
+        font-size: 23px;
         font-weight: 800;
         text-transform: uppercase;
-        border-radius: 8px;
+        border-radius: 10px;
         text-decoration: none;
         box-sizing: border-box;
-        animation: pulse-green 1.5s infinite;
         display: inline-block;
-        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+        cursor: pointer;
+
+        /* brilho */
+        box-shadow:
+            0 5px 20px rgba(37, 211, 102, 0.45),
+            0 0 30px rgba(37, 211, 102, 0.20);
+
+        /* pulsação */
+        animation: pulse-green 1.4s infinite;
     }
 
+    .btn-yes:hover {
+        background: linear-gradient(180deg, #42f583 0%, #16a84d 100%);
+    }
+
+    .btn-yes:active {
+        transform: scale(0.97);
+    }
+
+    /* BOTÃO RECUSAR */
     .btn-no {
         color: #ffffff;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
         text-decoration: underline;
         cursor: pointer;
+        display: inline-block;
+        padding: 5px 10px;
     }
 
     .btn-no:hover {
-        opacity: 0.8;
+        opacity: 0.75;
     }
 
-    /* ANIMAÇÃO */
+    /* ANIMAÇÃO BOTÃO VERDE */
     @keyframes pulse-green {
+
         0% {
             transform: scale(1);
+            box-shadow:
+                0 5px 20px rgba(37, 211, 102, 0.45),
+                0 0 30px rgba(37, 211, 102, 0.20);
         }
 
         50% {
-            transform: scale(1.04);
+            transform: scale(1.045);
+            box-shadow:
+                0 7px 28px rgba(37, 211, 102, 0.65),
+                0 0 45px rgba(37, 211, 102, 0.35);
         }
 
         100% {
             transform: scale(1);
+            box-shadow:
+                0 5px 20px rgba(37, 211, 102, 0.45),
+                0 0 30px rgba(37, 211, 102, 0.20);
         }
+
     }
 
     /* COUNTDOWN */
@@ -212,12 +242,12 @@
     @media (max-width: 480px) {
 
         .btn-yes {
-            font-size: 18px;
-            padding: 15px;
+            font-size: 19px;
+            padding: 17px 15px;
         }
 
         .btn-no {
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .title-tag {
@@ -260,6 +290,7 @@
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
         box-sizing: border-box;
     }
+
 </style>
 
 </head>
@@ -294,18 +325,46 @@
     </div>
 
 
-    <vturb-smartplayer id="vid-6ab3a8fd2664db7cc51c60f7" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6ab3a8fd2664db7cc51c60f7/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+    <vturb-smartplayer
+        id="vid-6ab3a8fd2664db7cc51c60f7"
+        style="display: block; margin: 0 auto; width: 100%;">
+        
+        <div
+            class="vturb-player-placeholder"
+            style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;">
+        </div>
 
-    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6ab3a8fd2664db7cc51c60f7/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/6ab3a87fa91b8d60cfc54745/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://license.vturb.com">
-    
+    </vturb-smartplayer>
 
+    <script type="text/javascript">
+        var s = document.createElement("script");
+        s.src = "https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6ab3a8fd2664db7cc51c60f7/v4/player.js";
+        s.async = true;
+        document.head.appendChild(s);
+    </script>
+
+    <script>
+        !function(i,n){
+            i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())
+        }(window,performance);
+    </script>
+
+    <link rel="preload"
+        href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6ab3a8fd2664db7cc51c60f7/v4/player.js"
+        as="script">
+
+    <link rel="preload"
+        href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js"
+        as="script">
+
+    <link rel="preload"
+        href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/6ab3a87fa91b8d60cfc54745/main.m3u8"
+        as="fetch">
+
+    <link rel="dns-prefetch" href="https://cdn.converteai.net">
+    <link rel="dns-prefetch" href="https://scripts.converteai.net">
+    <link rel="dns-prefetch" href="https://images.converteai.net">
+    <link rel="dns-prefetch" href="https://license.vturb.com">
 
 
     <br>
@@ -314,9 +373,21 @@
     <div class="decision-container">
 
         <!-- BOTÃO ACEITAR -->
-        <digistore-upsell-button id="esconder" template="light"></digistore-upsell-button>
+        <a
+            href="https://www.checkout-ds24.com/answer/yes?template=light"
+            class="btn-yes">
+            ✓ ACCÉDER À L'APPLICATION MAINTENANT
+        </a>
+
+        <!-- BOTÃO RECUSAR -->
+        <a
+            href="https://www.checkout-ds24.com/answer/no"
+            class="btn-no">
+            Non merci, je préfère continuer sans cette offre
+        </a>
 
     </div>
+
 
     <!-- COUNTDOWN -->
     <div class="countdown-box" id="esconder">
@@ -331,8 +402,10 @@
 
     </div>
 
+
     <!-- Grande marge à la fin de la page -->
     <div style="height: 150px; width: 100%;"></div>
+
 
     <script>
 
@@ -367,6 +440,7 @@
 
     </script>
 
+
     <script
         src="https://cdn.utmify.com.br/scripts/utms/latest.js"
         data-utmify-prevent-xcod-sck
@@ -374,8 +448,6 @@
         async
         defer>
     </script>
-
- 
 
 </body>
 </html>
