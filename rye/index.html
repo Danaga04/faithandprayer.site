@@ -19,7 +19,7 @@
 <style>
     /* Estilos da Seção de Comentários */
     .fb-comments-section {
-        background-color: #fff;
+        background-color: #000;
         max-width: 100%;
         width: 800px;
         margin: 30px auto;
@@ -76,10 +76,10 @@
     }
 
     .fb-comment-bubble {
-        background-color: #f0f2f5;
+        background-color: #1f1f1f;
         border-radius: 18px;
         padding: 10px 14px;
-        color: #050505;
+        color: #fff;
         font-size: 15px;
         line-height: 1.4;
         position: relative;
@@ -88,7 +88,7 @@
     .fb-author {
         font-weight: 700;
         font-size: 13px;
-        color: #050505;
+        color: #fff;
         display: inline-flex;
         align-items: center;
         gap: 4px;
@@ -150,11 +150,11 @@
     }
     
     .footer {
-        background-color: #f5f5f5;
+        background-color: #000;
         text-align: center;
         font-family: "Roboto", sans-serif;
         font-size: 13px;
-        color: #777;
+        color: #fff;
         padding: 25px 10px;
         line-height: 1.6;
     }
@@ -168,14 +168,15 @@
     .offer-section {
         font-family: 'Poppins', Arial, Helvetica, sans-serif;
         text-align: center;
-        background: #ffffff;
+        background: #000;
+        color: #fff;
     }
 
     .offer-section .special-text {
         margin-top: 15px;
         font-size: 16px;
         line-height: 1.6;
-        color: #111;
+        color: #fff;
         max-width: 400px;
         margin-left: auto;
         margin-right: auto;
@@ -225,7 +226,7 @@
 
     .offer-section .price-old {
         font-size: 28px;
-        color: #666;
+        color: #fff;
         font-weight: bold;
     }
 
@@ -283,6 +284,43 @@
         font-size: 12px;
         color: #888;
     }
+    body {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    .principal,
+    .area_video {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    .offer-section,
+    .fb-comments-section,
+    .footer {
+        color: #fff !important;
+    }
+
+    .offer-section .container,
+    .offer-section .price-new,
+    .offer-section .countdown-bar,
+    .fb-comments-section {
+        color: #fff;
+    }
+
+    .offer-section .countdown-box {
+        color: #fff;
+    }
+
+    .offer-section .time,
+    .offer-section .label {
+        color: #fff;
+    }
+
+    .footer p {
+        color: #fff !important;
+    }
+
 </style>
 
 <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
@@ -298,7 +336,7 @@
         
         
         <div style="display:flex;justify-content:center;align-items:center;width:100%;margin-top:20px;margin-bottom:20px;">
-            <p style="font-family:'Poppins',sans-serif;font-size:18px;color:#000;text-align:center;">
+            <p style="font-family:'Poppins',sans-serif;font-size:18px;color:#fff;text-align:center;">
                 <span id="number"></span> people watching now
             </p>
         </div>
@@ -570,28 +608,9 @@ setInterval(updateCountdown, 1000);
   defer
 ></script>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1491345345493360');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1491345345493360&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-
 
 <script>
-  const link = 'https://sacredchantguide.site/backred/';
+  const link = '/';
 
   function setBackRedirect(url) {
     let urlBackRedirect = url;
