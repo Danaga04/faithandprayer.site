@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
- 
+
 <script src="https://www.digistore24-scripts.com/service/digistore.js"></script>
 <script>digistoreUpsell()</script>
 
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Achat en cours de vérification</title>
 
@@ -147,12 +148,10 @@
         display: inline-block;
         cursor: pointer;
 
-        /* brilho */
         box-shadow:
             0 5px 20px rgba(37, 211, 102, 0.45),
             0 0 30px rgba(37, 211, 102, 0.20);
 
-        /* pulsação */
         animation: pulse-green 1.4s infinite;
     }
 
@@ -324,11 +323,10 @@
         Regardez la vidéo ci-dessous 👇 Ne cliquez pas sur « Retour » et ne quittez pas cette page avant d'avoir regardé la vidéo...
     </div>
 
-
     <vturb-smartplayer
         id="vid-6ab3a8fd2664db7cc51c60f7"
         style="display: block; margin: 0 auto; width: 100%;">
-        
+
         <div
             class="vturb-player-placeholder"
             style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;">
@@ -366,20 +364,30 @@
     <link rel="dns-prefetch" href="https://images.converteai.net">
     <link rel="dns-prefetch" href="https://license.vturb.com">
 
-
     <br>
 
     <!-- BOTÕES -->
     <div class="decision-container">
 
         <!-- BOTÃO ACEITAR -->
-        <digistore-upsell-button template="light"></digistore-upsell-button>
+        <a
+            href="https://www.checkout-ds24.com/answer/yes?template=light"
+            class="btn-yes">
+            CLIQUEZ ICI POUR ACCÉDER À L'APP ET CONTINUER
+        </a>
+
+        <!-- BOTÃO RECUSAR -->
+        <a
+            id="esconder"
+            href="https://www.checkout-ds24.com/answer/no"
+            class="btn-no">
+            NON, JE PRÉFÈRE REFUSER CETTE OFFRE UNIQUE ET PAYER 99 EUROS PLUS TARD.
+        </a>
 
     </div>
 
-
     <!-- COUNTDOWN -->
-    <div class="countdown-box" id="esconder">
+    <div class="countdown-box">
 
         <div class="countdown-text">
             Cliquez sur le bouton vert avant que le temps ne soit écoulé
@@ -391,10 +399,8 @@
 
     </div>
 
-
     <!-- Grande marge à la fin de la page -->
     <div style="height: 150px; width: 100%;"></div>
-
 
     <script>
 
@@ -411,7 +417,6 @@
             if (totalSeconds < 0) {
 
                 clearInterval(timer);
-
                 countdownEl.textContent = "00:00";
 
                 return;
@@ -428,7 +433,6 @@
         }, 1000);
 
     </script>
-
 
     <script
         src="https://cdn.utmify.com.br/scripts/utms/latest.js"
